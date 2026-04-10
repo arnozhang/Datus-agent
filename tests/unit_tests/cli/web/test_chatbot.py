@@ -71,7 +71,8 @@ class TestReadTemplate:
         html = _read_template()
         assert "DatusChatbot" in html
         assert "chatbot-root" in html
-        assert "{{ request_origin }}" in html
+        assert "{{ request_origin_json }}" in html
+        assert "{{ user_name_json }}" in html
         assert "{{ chatbot_js }}" in html
         assert "{{ chatbot_css }}" in html
         assert "{{ react_js }}" in html
@@ -353,3 +354,5 @@ class TestTemplateFile:
         assert "{{ chatbot_css }}" in content
         assert "{{ react_js }}" in content
         assert "{{ react_dom_js }}" in content
+        assert "{{ request_origin_json }}" in content
+        assert "{{ user_name_json }}" in content

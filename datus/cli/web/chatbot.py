@@ -11,6 +11,7 @@ Streamlit-based implementation with a lightweight FastAPI static-file server.
 """
 
 import argparse
+import json
 import os
 import webbrowser
 
@@ -112,24 +113,27 @@ def create_web_app(args: argparse.Namespace) -> FastAPI:
 
     # ── Render the HTML template ───────────────────────────────────
     html_template = _read_template()
-    host = getattr(args, "host", "localhost")
-    port = getattr(args, "port", 8501)
-    request_origin = f"http://{host}:{port}"
     user_name = getattr(args, "user_name", None) or os.getenv("USER", "User")
 
-    rendered_html = (
+    # Pre-render the static parts (asset URLs); dynamic parts (origin, user)
+    # are rendered per-request so reverse proxies and alternate hostnames work.
+    static_html = (
         html_template.replace("{{ react_js }}", react_js)
         .replace("{{ react_dom_js }}", react_dom_js)
         .replace("{{ chatbot_css }}", chatbot_css)
         .replace("{{ chatbot_js }}", chatbot_js)
-        .replace("{{ request_origin }}", request_origin)
-        .replace("{{ user_name }}", user_name)
     )
 
     # Override the default JSON root endpoint with the chatbot page
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)
-    async def chatbot_page(request: Request):
-        return HTMLResponse(content=rendered_html)
+    async def chatbot_page(request: Request) -> HTMLResponse:
+        # Derive requestOrigin from the actual request so it works behind
+        # reverse proxies, with --host 0.0.0.0, or alternate hostnames.
+        # json.dumps escapes quotes/special chars to prevent XSS.
+        rendered = static_html.replace(
+            "{{ request_origin_json }}", json.dumps(str(request.base_url).rstrip("/"))
+        ).replace("{{ user_name_json }}", json.dumps(user_name))
+        return HTMLResponse(content=rendered)
 
     return app
 

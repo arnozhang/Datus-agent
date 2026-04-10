@@ -47,8 +47,8 @@
     <script>
       DatusChatbot.initChatbot({
         el: '#chatbot-root',
-        requestOrigin: '{{ request_origin }}' || window.location.origin,
-        userName: '{{ user_name }}' || 'User',
+        requestOrigin: {{ request_origin_json }} || window.location.origin,
+        userName: {{ user_name_json }} || 'User',
       });
     </script>
   </body>
