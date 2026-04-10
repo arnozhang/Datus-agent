@@ -58,7 +58,6 @@ dependencies = [
     "uvicorn>=0.24.0",
     "google-generativeai>=0.8.0",
     "pyperclip==1.9.0",
-    "streamlit>=1.38.0",
     "wcmatch>=10.0",
     "fastembed==0.4.2",
     # Optional: install torch manually to enable reranker models.
@@ -73,6 +72,7 @@ dependencies = [
     "markdown-it-py>=3.0.0",
     "tabulate>=0.9.0",
     "datus-semantic-metricflow>=0.1.6",
+    "datus-starrocks>=0.1.5",
 ]
 #[tool.uv.sources]
 
