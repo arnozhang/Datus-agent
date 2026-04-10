@@ -78,6 +78,10 @@ def create_web_app(args: argparse.Namespace) -> FastAPI:
     agent_args = _build_agent_args(args)
     app = create_app(agent_args)
 
+    # ── Remove the default JSON root route registered by create_app()
+    #    so we can replace it with the chatbot HTML page.
+    app.routes[:] = [r for r in app.routes if not (hasattr(r, "path") and r.path == "/" and hasattr(r, "methods"))]
+
     # ── Resolve asset mode: local dist vs CDN ──────────────────────
     chatbot_dist = getattr(args, "chatbot_dist", None)
     use_local = False
