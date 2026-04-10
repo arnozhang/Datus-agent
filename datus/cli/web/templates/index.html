@@ -8,16 +8,16 @@
     <!-- React (externals) -->
     <script
       crossorigin
-      src="https://unpkg.com/react@18/umd/react.development.js"
+      src="{{ react_js }}"
     ></script>
     <script
       crossorigin
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      src="{{ react_dom_js }}"
     ></script>
 
-    <!-- Datus Chatbot (served by FastAPI) -->
-    <link rel="stylesheet" href="/chatbot-assets/datus-chatbot.css" />
-    <script src="/chatbot-assets/datus-chatbot.umd.js"></script>
+    <!-- Datus Chatbot -->
+    <link rel="stylesheet" href="{{ chatbot_css }}" />
+    <script src="{{ chatbot_js }}"></script>
 
     <style>
       * {
@@ -45,18 +45,10 @@
     <div id="chatbot-root"></div>
 
     <script>
-      // Configuration injected by the server via template rendering.
-      // Falls back to current origin so the page works even without
-      // server-side substitution (e.g. opened as a static file).
-      var __DATUS_CONFIG__ = {
-        requestOrigin: '{{ request_origin }}' || window.location.origin,
-        userName: '{{ user_name }}' || 'User',
-      };
-
       DatusChatbot.initChatbot({
         el: '#chatbot-root',
-        requestOrigin: __DATUS_CONFIG__.requestOrigin,
-        userName: __DATUS_CONFIG__.userName,
+        requestOrigin: '{{ request_origin }}' || window.location.origin,
+        userName: '{{ user_name }}' || 'User',
       });
     </script>
   </body>

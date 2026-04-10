@@ -26,11 +26,17 @@ logger = get_logger(__name__)
 
 _TEMPLATES_DIR = os.path.join(os.path.dirname(__file__), "templates")
 
-# Default path to the pre-built @datus/web-chatbot dist directory.
-# Override at runtime via the --chatbot-dist CLI flag.
-_DEFAULT_CHATBOT_DIST = os.path.normpath(
-    os.path.join(os.path.dirname(__file__), "..", "..", "..", "..", "Datus-saas", "packages", "web-chatbot", "dist")
-)
+# CDN URLs used when --chatbot-dist is NOT provided (production mode).
+_CDN_REACT_JS = "https://unpkg.com/react@18/umd/react.production.min.js"
+_CDN_REACT_DOM_JS = "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+_CDN_CHATBOT_CSS = "https://unpkg.com/@datus/web-chatbot/dist/datus-chatbot.css"
+_CDN_CHATBOT_JS = "https://unpkg.com/@datus/web-chatbot/dist/datus-chatbot.umd.js"
+
+# Dev URLs used when --chatbot-dist IS provided (local development mode).
+_DEV_REACT_JS = "https://unpkg.com/react@18/umd/react.development.js"
+_DEV_REACT_DOM_JS = "https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+_DEV_CHATBOT_CSS = "/chatbot-assets/datus-chatbot.css"
+_DEV_CHATBOT_JS = "/chatbot-assets/datus-chatbot.umd.js"
 
 
 def _build_agent_args(args: argparse.Namespace) -> argparse.Namespace:
@@ -72,34 +78,49 @@ def create_web_app(args: argparse.Namespace) -> FastAPI:
     agent_args = _build_agent_args(args)
     app = create_app(agent_args)
 
-    # ── Resolve chatbot dist directory ──────────────────────────────
-    chatbot_dist = getattr(args, "chatbot_dist", None) or _DEFAULT_CHATBOT_DIST
-    chatbot_dist = os.path.abspath(os.path.expanduser(chatbot_dist))
+    # ── Resolve asset mode: local dist vs CDN ──────────────────────
+    chatbot_dist = getattr(args, "chatbot_dist", None)
+    use_local = False
 
-    if not os.path.isdir(chatbot_dist):
-        logger.warning(
-            f"Chatbot dist directory not found: {chatbot_dist}. "
-            "The frontend assets will not be available. "
-            "Build @datus/web-chatbot or pass --chatbot-dist."
-        )
+    if chatbot_dist:
+        chatbot_dist = os.path.abspath(os.path.expanduser(chatbot_dist))
+        if not os.path.isdir(chatbot_dist):
+            logger.warning(f"Chatbot dist directory not found: {chatbot_dist}. Falling back to CDN.")
+        else:
+            app.mount(
+                "/chatbot-assets",
+                StaticFiles(directory=chatbot_dist),
+                name="chatbot-assets",
+            )
+            use_local = True
+            logger.info(f"Dev mode: serving chatbot assets from {chatbot_dist}")
+
+    if not use_local:
+        logger.info("Production mode: loading chatbot assets from CDN")
+
+    # ── Pick asset URLs based on mode ──────────────────────────────
+    if use_local:
+        react_js, react_dom_js = _DEV_REACT_JS, _DEV_REACT_DOM_JS
+        chatbot_css, chatbot_js = _DEV_CHATBOT_CSS, _DEV_CHATBOT_JS
     else:
-        # Serve the UMD bundle + CSS at /chatbot-assets/
-        app.mount(
-            "/chatbot-assets",
-            StaticFiles(directory=chatbot_dist),
-            name="chatbot-assets",
-        )
-        logger.info(f"Serving chatbot assets from {chatbot_dist}")
+        react_js, react_dom_js = _CDN_REACT_JS, _CDN_REACT_DOM_JS
+        chatbot_css, chatbot_js = _CDN_CHATBOT_CSS, _CDN_CHATBOT_JS
 
-    # ── HTML template route ─────────────────────────────────────────
+    # ── Render the HTML template ───────────────────────────────────
     html_template = _read_template()
     host = getattr(args, "host", "localhost")
     port = getattr(args, "port", 8501)
     request_origin = f"http://{host}:{port}"
     user_name = getattr(args, "user_name", None) or os.getenv("USER", "User")
 
-    # Pre-render the template with config values
-    rendered_html = html_template.replace("{{ request_origin }}", request_origin).replace("{{ user_name }}", user_name)
+    rendered_html = (
+        html_template.replace("{{ react_js }}", react_js)
+        .replace("{{ react_dom_js }}", react_dom_js)
+        .replace("{{ chatbot_css }}", chatbot_css)
+        .replace("{{ chatbot_js }}", chatbot_js)
+        .replace("{{ request_origin }}", request_origin)
+        .replace("{{ user_name }}", user_name)
+    )
 
     # Override the default JSON root endpoint with the chatbot page
     @app.get("/", response_class=HTMLResponse, include_in_schema=False)

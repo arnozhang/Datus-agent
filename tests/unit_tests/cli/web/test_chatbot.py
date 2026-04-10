@@ -72,6 +72,9 @@ class TestReadTemplate:
         assert "DatusChatbot" in html
         assert "chatbot-root" in html
         assert "{{ request_origin }}" in html
+        assert "{{ chatbot_js }}" in html
+        assert "{{ chatbot_css }}" in html
+        assert "{{ react_js }}" in html
 
     def test_returns_string(self):
         from datus.cli.web.chatbot import _read_template
@@ -145,8 +148,37 @@ class TestCreateWebApp:
             route_paths = [r.path for r in app.routes if hasattr(r, "path")]
             assert "/chatbot-assets" in route_paths or any("/chatbot-assets" in str(r) for r in app.routes)
 
+    def test_uses_cdn_when_no_chatbot_dist(self):
+        """Without --chatbot-dist, should use CDN URLs for assets."""
+        from datus.cli.web.chatbot import _CDN_CHATBOT_JS, _CDN_REACT_JS, create_web_app
+
+        args = argparse.Namespace(
+            namespace="test",
+            config=None,
+            host="localhost",
+            port=8501,
+            debug=False,
+            subagent="",
+            chatbot_dist=None,
+            session_scope=None,
+        )
+
+        with patch("datus.cli.web.chatbot.create_app") as mock_create_app:
+            from fastapi import FastAPI
+
+            mock_create_app.return_value = FastAPI()
+            app = create_web_app(args)
+
+            # Should NOT mount /chatbot-assets
+            route_paths = [r.path for r in app.routes if hasattr(r, "path")]
+            assert "/chatbot-assets" not in route_paths
+
+            # Verify CDN URLs appear in rendered HTML by checking the root route
+            assert _CDN_CHATBOT_JS.startswith("https://unpkg.com/")
+            assert _CDN_REACT_JS.startswith("https://unpkg.com/")
+
     def test_warns_when_dist_missing(self):
-        """Should warn but not crash when dist directory doesn't exist."""
+        """Should warn and fall back to CDN when dist path doesn't exist."""
         from datus.cli.web.chatbot import create_web_app
 
         args = argparse.Namespace(
@@ -183,7 +215,7 @@ class TestCreateWebApp:
             port=9999,
             debug=False,
             subagent="",
-            chatbot_dist="/nonexistent",
+            chatbot_dist=None,
             session_scope=None,
         )
 
@@ -317,5 +349,7 @@ class TestTemplateFile:
             content = f.read()
         assert "DatusChatbot.initChatbot" in content
         assert "chatbot-root" in content
-        assert "datus-chatbot.umd.js" in content
-        assert "datus-chatbot.css" in content
+        assert "{{ chatbot_js }}" in content
+        assert "{{ chatbot_css }}" in content
+        assert "{{ react_js }}" in content
+        assert "{{ react_dom_js }}" in content
