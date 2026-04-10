@@ -150,7 +150,10 @@ class TestCreateWebApp:
             assert "/chatbot-assets" in route_paths or any("/chatbot-assets" in str(r) for r in app.routes)
 
     def test_uses_cdn_when_no_chatbot_dist(self):
-        """Without --chatbot-dist, should use CDN URLs for assets."""
+        """Without --chatbot-dist, should use CDN URLs in rendered HTML."""
+        from fastapi import FastAPI
+        from fastapi.testclient import TestClient
+
         from datus.cli.web.chatbot import _CDN_CHATBOT_JS, _CDN_REACT_JS, create_web_app
 
         args = argparse.Namespace(
@@ -165,8 +168,6 @@ class TestCreateWebApp:
         )
 
         with patch("datus.cli.web.chatbot.create_app") as mock_create_app:
-            from fastapi import FastAPI
-
             mock_create_app.return_value = FastAPI()
             app = create_web_app(args)
 
@@ -174,9 +175,12 @@ class TestCreateWebApp:
             route_paths = [r.path for r in app.routes if hasattr(r, "path")]
             assert "/chatbot-assets" not in route_paths
 
-            # Verify CDN URLs appear in rendered HTML by checking the root route
-            assert _CDN_CHATBOT_JS.startswith("https://unpkg.com/")
-            assert _CDN_REACT_JS.startswith("https://unpkg.com/")
+            # Verify CDN URLs are actually rendered in the HTML response
+            client = TestClient(app, raise_server_exceptions=False)
+            resp = client.get("/")
+            assert resp.status_code == 200
+            assert _CDN_CHATBOT_JS in resp.text
+            assert _CDN_REACT_JS in resp.text
 
     def test_warns_when_dist_missing(self):
         """Should warn and fall back to CDN when dist path doesn't exist."""
