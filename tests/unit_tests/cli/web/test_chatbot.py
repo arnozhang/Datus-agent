@@ -205,6 +205,40 @@ class TestCreateWebApp:
             assert app is not None
             mock_logger.warning.assert_called_once()
 
+    def test_falls_back_to_cdn_when_dist_incomplete(self, tmp_path):
+        """Should fall back to CDN when dist dir exists but bundle files are missing."""
+        from datus.cli.web.chatbot import create_web_app
+
+        # Create dir with only CSS, missing the JS bundle
+        dist_dir = tmp_path / "dist"
+        dist_dir.mkdir()
+        (dist_dir / "datus-chatbot.css").write_text("/* css */")
+
+        args = argparse.Namespace(
+            namespace="test",
+            config=None,
+            host="localhost",
+            port=8501,
+            debug=False,
+            subagent="",
+            chatbot_dist=str(dist_dir),
+            session_scope=None,
+        )
+
+        with (
+            patch("datus.cli.web.chatbot.create_app") as mock_create_app,
+            patch("datus.cli.web.chatbot.logger") as mock_logger,
+        ):
+            from fastapi import FastAPI
+
+            mock_create_app.return_value = FastAPI()
+            app = create_web_app(args)
+
+            # Should NOT mount /chatbot-assets
+            route_paths = [r.path for r in app.routes if hasattr(r, "path")]
+            assert "/chatbot-assets" not in route_paths
+            mock_logger.warning.assert_called_once()
+
     def test_html_template_rendered(self):
         """The root route should serve HTML with config values substituted."""
         from datus.cli.web.chatbot import create_web_app

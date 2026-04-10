@@ -89,8 +89,12 @@ def create_web_app(args: argparse.Namespace) -> FastAPI:
 
     if chatbot_dist:
         chatbot_dist = os.path.abspath(os.path.expanduser(chatbot_dist))
-        if not os.path.isdir(chatbot_dist):
-            logger.warning(f"Chatbot dist directory not found: {chatbot_dist}. Falling back to CDN.")
+        required_assets = [
+            os.path.join(chatbot_dist, "datus-chatbot.css"),
+            os.path.join(chatbot_dist, "datus-chatbot.umd.js"),
+        ]
+        if not os.path.isdir(chatbot_dist) or not all(os.path.isfile(p) for p in required_assets):
+            logger.warning(f"Chatbot dist directory missing or incomplete: {chatbot_dist}. Falling back to CDN.")
         else:
             app.mount(
                 "/chatbot-assets",
