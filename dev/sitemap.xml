@@ -50,11 +50,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/API/knowledge_base/"/>
     </url>
     <url>
+        <loc>https://docs.datus.ai/dev/adapters/bi_adapters/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/adapters/bi_adapters/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/adapters/bi_adapters/"/>
+    </url>
+    <url>
         <loc>https://docs.datus.ai/dev/adapters/db_adapters/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/adapters/db_adapters/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/adapters/db_adapters/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/adapters/scheduler_adapters/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/adapters/scheduler_adapters/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/adapters/scheduler_adapters/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/adapters/semantic_adapters/</loc>
@@ -169,6 +183,20 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/benchmark/"/>
     </url>
     <url>
+        <loc>https://docs.datus.ai/dev/configuration/bi_tools/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/bi_tools/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/bi_tools/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/configuration/databases/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/databases/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/databases/"/>
+    </url>
+    <url>
         <loc>https://docs.datus.ai/dev/configuration/introduction/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
@@ -176,18 +204,25 @@
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/introduction/"/>
     </url>
     <url>
-        <loc>https://docs.datus.ai/dev/configuration/namespace/</loc>
-        <lastmod>2026-04-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/namespace/"/>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/namespace/"/>
-    </url>
-    <url>
         <loc>https://docs.datus.ai/dev/configuration/nodes/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/nodes/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/nodes/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/configuration/schedulers/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/schedulers/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/schedulers/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/configuration/semantic_layer/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/configuration/semantic_layer/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/configuration/semantic_layer/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/configuration/storage/</loc>
@@ -258,6 +293,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/getting_started/dashboard_copilot/"/>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/getting_started/dashboard_copilot/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/getting_started/data_engineering_quickstart/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/dev/getting_started/data_engineering_quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/devzh/getting_started/data_engineering_quickstart/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/integration/mcp/</loc>
@@ -512,11 +554,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devAPI/knowledge_base/"/>
     </url>
     <url>
+        <loc>https://docs.datus.ai/dev/zh/adapters/bi_adapters/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/adapters/bi_adapters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devadapters/bi_adapters/"/>
+    </url>
+    <url>
         <loc>https://docs.datus.ai/dev/zh/adapters/db_adapters/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/adapters/db_adapters/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devadapters/db_adapters/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/zh/adapters/scheduler_adapters/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/adapters/scheduler_adapters/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devadapters/scheduler_adapters/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/zh/adapters/semantic_adapters/</loc>
@@ -631,6 +687,20 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/benchmark/"/>
     </url>
     <url>
+        <loc>https://docs.datus.ai/dev/zh/configuration/bi_tools/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/bi_tools/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/bi_tools/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/zh/configuration/databases/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/databases/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/databases/"/>
+    </url>
+    <url>
         <loc>https://docs.datus.ai/dev/zh/configuration/introduction/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
@@ -638,18 +708,25 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/introduction/"/>
     </url>
     <url>
-        <loc>https://docs.datus.ai/dev/zh/configuration/namespace/</loc>
-        <lastmod>2026-04-20</lastmod>
-        <changefreq>daily</changefreq>
-        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/namespace/"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/namespace/"/>
-    </url>
-    <url>
         <loc>https://docs.datus.ai/dev/zh/configuration/nodes/</loc>
         <lastmod>2026-04-20</lastmod>
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/nodes/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/nodes/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/zh/configuration/schedulers/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/schedulers/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/schedulers/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/zh/configuration/semantic_layer/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/configuration/semantic_layer/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devconfiguration/semantic_layer/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/zh/configuration/storage/</loc>
@@ -720,6 +797,13 @@
         <changefreq>daily</changefreq>
         <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/getting_started/dashboard_copilot/"/>
         <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devgetting_started/dashboard_copilot/"/>
+    </url>
+    <url>
+        <loc>https://docs.datus.ai/dev/zh/getting_started/data_engineering_quickstart/</loc>
+        <lastmod>2026-04-20</lastmod>
+        <changefreq>daily</changefreq>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://docs.datus.ai/dev/zh/getting_started/data_engineering_quickstart/"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://docs.datus.ai/devgetting_started/data_engineering_quickstart/"/>
     </url>
     <url>
         <loc>https://docs.datus.ai/dev/zh/integration/mcp/</loc>
