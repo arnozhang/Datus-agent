@@ -38,6 +38,7 @@ from datus.utils.path_manager import set_current_path_manager
 logger = get_logger(__name__)
 
 HEARTBEAT_INTERVAL = 10  # seconds
+STOP_TASK_WAIT_TIMEOUT = 5.0  # seconds to wait for a cancelled task to unwind
 
 
 def is_thinking_only_content(content_items) -> bool:
@@ -253,8 +254,19 @@ class ChatTaskManager:
         task.asyncio_task = asyncio_task
         return task
 
-    async def stop_task(self, session_id: str) -> bool:
-        """Stop a running task by interrupting its node."""
+    async def stop_task(self, session_id: str, wait_timeout: float = STOP_TASK_WAIT_TIMEOUT) -> bool:
+        """Stop a running task and wait until it has fully unwound.
+
+        Sends the cooperative interrupt signal, cancels the background asyncio
+        task, then awaits its completion (shielded from the caller's own
+        cancellation) so that ``_run_loop``'s ``finally`` has removed the
+        session from ``_tasks`` before this returns. Returning ``True`` means
+        the caller can immediately reuse ``session_id`` in a new
+        ``start_chat`` without hitting the "A task is already running" guard.
+
+        If the task fails to unwind within ``wait_timeout``, returns ``False``
+        so the caller knows the state is not yet clean.
+        """
         task = self._tasks.get(session_id)
         if not task:
             return False
@@ -266,12 +278,33 @@ class ChatTaskManager:
             except Exception as e:
                 logger.error(f"Failed to interrupt task {session_id}: {e}")
 
-        if task.asyncio_task and not task.asyncio_task.done():
-            task.asyncio_task.cancel()
-            logger.info(f"Cancelled asyncio task: {session_id}")
-            return True
+        asyncio_task = task.asyncio_task
+        if not asyncio_task or asyncio_task.done():
+            return session_id not in self._tasks
 
-        return False
+        asyncio_task.cancel()
+        logger.info(f"Cancelled asyncio task: {session_id}")
+        try:
+            await asyncio.wait_for(asyncio.shield(asyncio_task), timeout=wait_timeout)
+        except asyncio.CancelledError:
+            # The cancellation we issued surfaces here; the task itself is done.
+            pass
+        except asyncio.TimeoutError:
+            logger.warning(
+                f"Timed out waiting for task {session_id} to finish after {wait_timeout}s; "
+                "session state may still be transitioning"
+            )
+            return False
+        except Exception as e:
+            logger.error(f"Error while awaiting cancelled task {session_id}: {e}")
+
+        # If the task was cancelled before its coroutine even started, _run_loop.finally
+        # never ran — pop the stale entry ourselves so the session_id is immediately
+        # reusable. The finally is idempotent (pop(..., None)) in the normal path.
+        if asyncio_task.done() and session_id in self._tasks:
+            self._tasks.pop(session_id, None)
+
+        return session_id not in self._tasks
 
     def has_active_tasks(self) -> bool:
         """Return True if any task is still running."""

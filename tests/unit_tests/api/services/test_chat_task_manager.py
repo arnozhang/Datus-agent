@@ -199,15 +199,105 @@ class TestChatTaskManagerBehavior:
     async def test_stop_task_with_no_node_cancels_asyncio_task(self):
         """stop_task cancels asyncio task when node is not set."""
         manager = ChatTaskManager()
-        mock_asyncio_task = MagicMock()
-        mock_asyncio_task.done.return_value = False
-        task = ChatTask(session_id="s4", asyncio_task=mock_asyncio_task)
+        started = asyncio.Event()
+
+        async def _long_running():
+            started.set()
+            try:
+                await asyncio.sleep(60)
+            finally:
+                manager._tasks.pop("s4", None)
+
+        asyncio_task = asyncio.create_task(_long_running())
+        task = ChatTask(session_id="s4", asyncio_task=asyncio_task)
         task.node = None
         manager._tasks["s4"] = task
+        await started.wait()
 
         result = await manager.stop_task("s4")
         assert result is True
-        mock_asyncio_task.cancel.assert_called_once()
+        assert asyncio_task.cancelled() or asyncio_task.done()
+        assert "s4" not in manager._tasks
+
+    @pytest.mark.asyncio
+    async def test_stop_task_waits_until_tasks_entry_cleared(self):
+        """stop_task returns only after the _run_loop-style finally has run."""
+        manager = ChatTaskManager()
+        started = asyncio.Event()
+        cleanup_reached = asyncio.Event()
+
+        async def _long_running():
+            started.set()
+            try:
+                await asyncio.sleep(60)
+            finally:
+                # Mimic _run_loop.finally pop/notify so stop_task can observe completion
+                manager._tasks.pop("race-id", None)
+                cleanup_reached.set()
+
+        asyncio_task = asyncio.create_task(_long_running())
+        task = ChatTask(session_id="race-id", asyncio_task=asyncio_task)
+        manager._tasks["race-id"] = task
+        await started.wait()
+
+        result = await manager.stop_task("race-id")
+        assert result is True
+        assert cleanup_reached.is_set()
+        assert "race-id" not in manager._tasks
+
+    @pytest.mark.asyncio
+    async def test_stop_task_cleans_up_entry_even_if_coroutine_never_started(self):
+        """Fallback pop covers the edge case where cancel() hits before the coroutine runs."""
+        manager = ChatTaskManager()
+
+        async def _never_starts():
+            await asyncio.sleep(60)
+
+        asyncio_task = asyncio.create_task(_never_starts())
+        task = ChatTask(session_id="unstarted", asyncio_task=asyncio_task)
+        manager._tasks["unstarted"] = task
+        # Deliberately DO NOT yield — cancel before the coroutine gets scheduled.
+
+        result = await manager.stop_task("unstarted")
+        assert result is True
+        assert "unstarted" not in manager._tasks
+
+    @pytest.mark.asyncio
+    async def test_stop_task_timeout_returns_false_when_task_ignores_cancel(self):
+        """stop_task returns False if the task does not unwind within wait_timeout."""
+        manager = ChatTaskManager()
+        started = asyncio.Event()
+        saw_cancel = asyncio.Event()
+        release = asyncio.Event()
+
+        async def _swallows_cancel():
+            started.set()
+            while not release.is_set():
+                try:
+                    await asyncio.sleep(10)
+                except asyncio.CancelledError:
+                    saw_cancel.set()
+                    # Simulate a task that can't unwind immediately because
+                    # it is stuck in a blocking-in-thread await.
+                    continue
+
+        asyncio_task = asyncio.create_task(_swallows_cancel())
+        task = ChatTask(session_id="stuck", asyncio_task=asyncio_task)
+        manager._tasks["stuck"] = task
+        await started.wait()
+
+        try:
+            result = await manager.stop_task("stuck", wait_timeout=0.1)
+            assert result is False
+            assert saw_cancel.is_set()
+            assert "stuck" in manager._tasks  # not cleaned up yet
+        finally:
+            release.set()
+            asyncio_task.cancel()
+            try:
+                await asyncio_task
+            except asyncio.CancelledError:
+                pass
 
 
 @pytest.mark.asyncio
@@ -289,6 +379,25 @@ class TestStartChat:
         result = await manager.stop_task("stop-test")
         assert result is True
         mock_node.interrupt_controller.interrupt.assert_called_once()
+        await manager.shutdown()
+
+    async def test_stop_then_immediately_start_same_session(self, real_agent_config, mock_llm_create):
+        """After stop_task returns, the same session_id is immediately reusable in start_chat."""
+        from datus.api.models.cli_models import StreamChatInput
+
+        manager = ChatTaskManager()
+        session_id = "reuse-test"
+
+        first = await manager.start_chat(real_agent_config, StreamChatInput(message="first", session_id=session_id))
+        assert first.session_id == session_id
+
+        stopped = await manager.stop_task(session_id)
+        assert stopped is True
+        assert session_id not in manager._tasks
+
+        # Must not raise "A task is already running"
+        second = await manager.start_chat(real_agent_config, StreamChatInput(message="second", session_id=session_id))
+        assert second.session_id == session_id
         await manager.shutdown()
 
     async def test_wait_all_tasks_with_running(self, real_agent_config, mock_llm_create):
