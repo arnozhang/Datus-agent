@@ -5,9 +5,13 @@ This module provides endpoints for initialization status checks
 and supported provider/database type listings.
 """
 
-from fastapi import APIRouter
+from typing import Any, Dict, Optional
 
-from datus.api.deps import ServiceDep
+from fastapi import APIRouter
+from pydantic import BaseModel
+
+from datus.api import deps
+from datus.api.deps import AppContextDep, ServiceDep
 from datus.api.models.base_models import Result
 from datus.api.models.config_models import (
     DatabaseTypeInfo,
@@ -15,8 +19,56 @@ from datus.api.models.config_models import (
     LLMProviderInfo,
     LLMProvidersData,
 )
+from datus.configuration.agent_config import _SAFE_NAME_RE
+from datus.configuration.agent_config_loader import configuration_manager
+from datus.utils.exceptions import DatusException, ErrorCode
+from datus.utils.loggings import get_logger
+
+logger = get_logger(__name__)
 
 router = APIRouter(prefix="/api/v1", tags=["configuration"])
+
+
+class UpdateDatabasesRequest(BaseModel):
+    """Full desired state for `services.databases`.
+
+    Any existing database key absent from `databases` will be deleted.
+    """
+
+    databases: Dict[str, Dict[str, Any]]
+
+
+class UpdateModelsRequest(BaseModel):
+    """Optional full-replace for `models` and/or update to `target`.
+
+    At least one of `models` or `target` must be provided.
+    """
+
+    models: Optional[Dict[str, Dict[str, Any]]] = None
+    target: Optional[str] = None
+
+
+def _validate_keys(entries: Dict[str, Any], kind: str) -> None:
+    """Ensure every key matches the naming policy used by AgentConfig."""
+    for name in entries.keys():
+        if not _SAFE_NAME_RE.match(name):
+            raise DatusException(
+                ErrorCode.COMMON_FIELD_INVALID,
+                message=(
+                    f"Invalid {kind} name '{name}'. Only alphanumeric characters, underscores, and hyphens are allowed."
+                ),
+            )
+
+
+async def _evict_current_project(project_id: str) -> None:
+    """Drop the cached DatusService so the next request reloads from YAML."""
+    cache = deps._service_cache
+    if cache is None:
+        return
+    try:
+        await cache.evict(project_id)
+    except Exception:
+        logger.exception(f"Failed to evict service cache for project {project_id}")
 
 
 @router.get(
@@ -30,23 +82,23 @@ async def get_agent_config_endpoint(
 ) -> Result[dict]:
     """Return the project's loaded AgentConfig summary."""
     config = svc.agent_config
-    flat_namespaces: dict = {}
+    flat_databases: dict = {}
 
-    for ns_name, inner in config.namespaces.items():
+    for db_name, inner in config.namespaces.items():
         if not inner:
             continue
-        db_config = inner.get(ns_name)
+        db_config = inner.get(db_name)
         if db_config is None:
             db_config = next(iter(inner.values()))
-        flat_namespaces[ns_name] = db_config
+        flat_databases[db_name] = db_config
 
     return Result(
         success=True,
         data={
             "target": config.target,
             "models": config.models,
-            "current_namespace": config.current_namespace,
-            "namespaces": flat_namespaces,
+            "current_database": config.current_namespace,
+            "databases": flat_databases,
             "home": config.home,
         },
     )
@@ -148,3 +200,69 @@ async def get_database_types() -> Result[DatabaseTypesData]:
         success=True,
         data=DatabaseTypesData(database_types=database_types, default="postgresql"),
     )
+
+
+@router.put(
+    "/config/databases",
+    response_model=Result[dict],
+    summary="Update Databases",
+    description="Replace the databases (services.databases) block in agent.yml.",
+)
+async def update_databases_endpoint(
+    body: UpdateDatabasesRequest,
+    svc: ServiceDep,  # noqa: ARG001  # populates request.state.app_context; must resolve before AppContextDep
+    ctx: AppContextDep,
+) -> Result[dict]:
+    """Full-replace `services.databases` with the provided databases."""
+    _validate_keys(body.databases, kind="database")
+
+    cm = configuration_manager()
+    services = cm.data.setdefault("services", {})
+    services["databases"] = dict(body.databases)
+    cm.save()
+
+    await _evict_current_project(ctx.project_id or "default")
+
+    return Result(success=True, data={"updated": True})
+
+
+@router.put(
+    "/config/models",
+    response_model=Result[dict],
+    summary="Update Models and Target",
+    description="Replace the models block and/or update the default target in agent.yml.",
+)
+async def update_models_endpoint(
+    body: UpdateModelsRequest,
+    svc: ServiceDep,  # noqa: ARG001
+    ctx: AppContextDep,
+) -> Result[dict]:
+    """Optional full-replace `models`, optional update `target`. One must be set."""
+    if body.models is None and body.target is None:
+        raise DatusException(
+            ErrorCode.COMMON_FIELD_INVALID,
+            message="At least one of 'models' or 'target' must be provided.",
+        )
+
+    if body.models is not None:
+        _validate_keys(body.models, kind="model")
+
+    cm = configuration_manager()
+
+    if body.target is not None:
+        effective_models = body.models if body.models is not None else cm.data.get("models") or {}
+        if body.target not in effective_models:
+            raise DatusException(
+                ErrorCode.COMMON_FIELD_INVALID,
+                message=f"target '{body.target}' does not exist in models.",
+            )
+
+    if body.models is not None:
+        cm.data["models"] = dict(body.models)
+    if body.target is not None:
+        cm.data["target"] = body.target
+    cm.save()
+
+    await _evict_current_project(ctx.project_id or "default")
+
+    return Result(success=True, data={"updated": True})
