@@ -10,11 +10,15 @@ import pytest
 
 from datus.api.routes import config_routes
 from datus.api.routes.config_routes import (
+    ProbeDatabaseRequest,
+    ProbeModelRequest,
     UpdateDatabasesRequest,
     UpdateModelsRequest,
     get_agent_config_endpoint,
     get_database_types,
     get_llm_providers,
+    probe_database_connectivity_endpoint,
+    probe_model_connectivity_endpoint,
     update_databases_endpoint,
     update_models_endpoint,
 )
@@ -293,3 +297,89 @@ async def test_update_databases_uses_default_project_when_missing(patched_cm, pa
     )
 
     patched_cache.evict.assert_awaited_once_with("default")
+
+
+@pytest.mark.asyncio
+async def test_test_model_connectivity_ok(monkeypatch):
+    """Successful LLM probe returns ok=True and forwards the payload unchanged."""
+    captured = {}
+
+    def fake_probe(payload):
+        captured["payload"] = payload
+
+    monkeypatch.setattr(config_routes, "_probe_llm_sync", fake_probe)
+
+    body = ProbeModelRequest(type="openai", model="gpt-4o", api_key="sk-xxx", base_url="https://api.openai.com/v1")
+    result = await probe_model_connectivity_endpoint(body, svc=MagicMock())
+
+    assert result.success is True
+    assert result.data == {"ok": True}
+    assert captured["payload"]["type"] == "openai"
+    assert captured["payload"]["api_key"] == "sk-xxx"
+
+
+@pytest.mark.asyncio
+async def test_test_model_connectivity_reports_error_message(monkeypatch):
+    """Probe exception is surfaced as ok=False with message; HTTP stays 200."""
+
+    def fake_probe(payload):
+        raise RuntimeError("401 unauthorized")
+
+    monkeypatch.setattr(config_routes, "_probe_llm_sync", fake_probe)
+
+    body = ProbeModelRequest(type="openai", model="gpt-4o", api_key="bad")
+    result = await probe_model_connectivity_endpoint(body, svc=MagicMock())
+
+    assert result.success is True
+    assert result.data["ok"] is False
+    assert "401" in result.data["message"]
+
+
+@pytest.mark.asyncio
+async def test_test_model_connectivity_passes_extra_fields(monkeypatch):
+    """Unknown fields on the request body are forwarded to the probe (extra=allow)."""
+    captured = {}
+
+    def fake_probe(payload):
+        captured["payload"] = payload
+
+    monkeypatch.setattr(config_routes, "_probe_llm_sync", fake_probe)
+
+    body = ProbeModelRequest.model_validate({"type": "openai", "model": "gpt-4o", "api_key": "k", "vendor": "openai"})
+    await probe_model_connectivity_endpoint(body, svc=MagicMock())
+
+    assert captured["payload"].get("vendor") == "openai"
+
+
+@pytest.mark.asyncio
+async def test_test_database_connectivity_ok(monkeypatch):
+    """Successful DB probe returns ok=True and forwards the payload unchanged."""
+    captured = {}
+
+    def fake_probe(payload):
+        captured["payload"] = payload
+
+    monkeypatch.setattr(config_routes, "_probe_database_sync", fake_probe)
+
+    body = ProbeDatabaseRequest.model_validate({"type": "duckdb", "uri": "/tmp/test.duckdb"})
+    result = await probe_database_connectivity_endpoint(body, svc=MagicMock())
+
+    assert result.data == {"ok": True}
+    assert captured["payload"]["type"] == "duckdb"
+    assert captured["payload"]["uri"] == "/tmp/test.duckdb"
+
+
+@pytest.mark.asyncio
+async def test_test_database_connectivity_reports_error_message(monkeypatch):
+    """Probe exception is surfaced as ok=False with message; HTTP stays 200."""
+
+    def fake_probe(payload):
+        raise RuntimeError("connection refused")
+
+    monkeypatch.setattr(config_routes, "_probe_database_sync", fake_probe)
+
+    body = ProbeDatabaseRequest.model_validate({"type": "starrocks", "host": "unreachable", "port": "9999"})
+    result = await probe_database_connectivity_endpoint(body, svc=MagicMock())
+
+    assert result.data["ok"] is False
+    assert "connection refused" in result.data["message"]
