@@ -30,14 +30,23 @@ async def get_agent_config_endpoint(
 ) -> Result[dict]:
     """Return the project's loaded AgentConfig summary."""
     config = svc.agent_config
+    flat_namespaces: dict = {}
+
+    for ns_name, inner in config.namespaces.items():
+        if not inner:
+            continue
+        db_config = inner.get(ns_name)
+        if db_config is None:
+            db_config = next(iter(inner.values()))
+        flat_namespaces[ns_name] = db_config
+
     return Result(
         success=True,
         data={
             "target": config.target,
-            "models": list(config.models.keys()),
+            "models": config.models,
             "current_namespace": config.current_namespace,
-            "namespaces": list(config.namespaces.keys()),
-            "agentic_nodes": list(config.agentic_nodes.keys()) if config.agentic_nodes else [],
+            "namespaces": flat_namespaces,
             "home": config.home,
         },
     )
