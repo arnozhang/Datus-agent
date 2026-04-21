@@ -4449,7 +4449,12 @@ else returns the standard <a href="../introduction/#response-envelope"><code>Res
 <tr>
 <td><code>prompt_language</code></td>
 <td>string</td>
-<td><code>en</code> (default) or <code>zh</code></td>
+<td><code>en</code> (default) or <code>zh</code> — selects the prompt template variant</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>string?</td>
+<td>Optional response language override (e.g. <code>en</code>, <code>zh</code>, <code>ja</code>). Falls back to <code>agent.language</code> from yaml; when neither is set, no language directive is injected and the model chooses its own response language. Controls the natural language every agentic node uses for replies, file comments, sub-agent prompts, and <code>ask_user</code> questions. Code/SQL/identifiers stay in their original form.</td>
 </tr>
 <tr>
 <td><code>stream_response</code></td>

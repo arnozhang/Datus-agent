@@ -4449,7 +4449,12 @@
 <tr>
 <td><code>prompt_language</code></td>
 <td>string</td>
-<td><code>en</code>(默认)或 <code>zh</code></td>
+<td><code>en</code>(默认)或 <code>zh</code>——选择 prompt 模板变体</td>
+</tr>
+<tr>
+<td><code>language</code></td>
+<td>string?</td>
+<td>响应语言覆盖（如 <code>en</code>、<code>zh</code>、<code>ja</code>）。留空时回退到 yaml 中的 <code>agent.language</code>；若 yaml 也未设置，则不向 system prompt 注入语言指令，由模型自行选择回答语言。控制所有 agentic 节点的回答文本、写入文件的注释、调用子 agent 的 prompt 及 <code>ask_user</code> 问题所使用的自然语言；代码、SQL、标识符保持原样。</td>
 </tr>
 <tr>
 <td><code>stream_response</code></td>
