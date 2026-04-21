@@ -1445,7 +1445,7 @@
   <span class="md-ellipsis">
     
   
-    IM Gateway (Claw)
+    IM Gateway
   
 
     
@@ -1461,7 +1461,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM Gateway (Claw)
+    IM Gateway
   
 
           </label>
@@ -1474,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
@@ -1502,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1530,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
@@ -2837,14 +2837,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../bi_tools/" class="md-nav__link">
+      <a href="../bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI Tools
+    BI Platforms
   
 
     
@@ -4045,7 +4045,7 @@
 <h1 id="database-configuration">Database Configuration<a class="headerlink" href="#database-configuration" title="Permanent link">&para;</a></h1>
 <p>Configure database connections under <code>agent.services.databases</code>.</p>
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
-<p>The runtime services in Datus Agent live under <code>agent.services</code> in <code>agent.yml</code>. This page focuses on database connections in <code>services.databases</code>. Semantic adapters, BI tools, and schedulers are documented on their sibling pages.</p>
+<p>The runtime services in Datus Agent live under <code>agent.services</code> in <code>agent.yml</code>. This page focuses on database connections in <code>services.databases</code>. Semantic adapters, BI platforms, and schedulers are documented on their sibling pages.</p>
 <p>Key features:</p>
 <ul>
 <li><strong>Universal Connectivity</strong>: Support for cloud data warehouses (Snowflake, StarRocks), local databases (SQLite, DuckDB), and more</li>
@@ -4076,7 +4076,7 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">metricflow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">bi_tools</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
@@ -4112,7 +4112,7 @@
 <td><code>semantic_adapter</code></td>
 </tr>
 <tr>
-<td><code>services.bi_tools</code></td>
+<td><code>services.bi_platforms</code></td>
 <td>BI platform credentials and dataset materialization config</td>
 <td><code>bi_platform</code></td>
 </tr>
@@ -4297,7 +4297,7 @@
 <ul>
 <li><a href="../../adapters/db_adapters/">Database Adapters</a> - Install plugin adapters for MySQL, Snowflake, StarRocks, and more</li>
 <li><a href="../semantic_layer/">Semantic Layer Configuration</a> - Configure semantic adapters</li>
-<li><a href="../bi_tools/">BI Tools Configuration</a> - Configure Superset or Grafana</li>
+<li><a href="../bi_platforms/">BI Platforms Configuration</a> - Configure Superset or Grafana</li>
 <li><a href="../schedulers/">Scheduler Configuration</a> - Configure Airflow services</li>
 <li><a href="../../cli-commands/">CLI Commands</a> - Full CLI reference including configure, init, and service commands</li>
 </ul>

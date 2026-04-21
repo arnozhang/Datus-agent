@@ -1445,7 +1445,7 @@
   <span class="md-ellipsis">
     
   
-    IM 网关 (Claw)
+    IM 网关
   
 
     
@@ -1461,7 +1461,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM 网关 (Claw)
+    IM 网关
   
 
           </label>
@@ -1474,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
@@ -1502,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1530,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
@@ -2837,14 +2837,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../bi_tools/" class="md-nav__link">
+      <a href="../bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI 工具
+    BI 平台
   
 
     
@@ -4045,7 +4045,7 @@
 <h1 id="databases">数据库配置（Databases）<a class="headerlink" href="#databases" title="Permanent link">&para;</a></h1>
 <p>配置 <code>agent.services.databases</code> 下的数据库连接。</p>
 <h2 id="_1">概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>Datus Agent 在 <code>agent.yml</code> 中通过 <code>agent.services</code> 统一管理运行时集成。本页聚焦 <code>services.databases</code> 下的数据库连接；语义层、BI 工具和调度器分别在同级页面单独说明。</p>
+<p>Datus Agent 在 <code>agent.yml</code> 中通过 <code>agent.services</code> 统一管理运行时集成。本页聚焦 <code>services.databases</code> 下的数据库连接；语义层、BI 平台和调度器分别在同级页面单独说明。</p>
 <p>主要特性：</p>
 <ul>
 <li><strong>统一连接入口</strong>：支持 Snowflake、StarRocks、SQLite、DuckDB 等数据库，以及语义层、BI、调度器服务</li>
@@ -4076,7 +4076,7 @@
 </span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span>
 </span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">      </span><span class="nt">metricflow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">bi_tools</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
 </span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
 </span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
 </span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
@@ -4112,7 +4112,7 @@
 <td><code>semantic_adapter</code></td>
 </tr>
 <tr>
-<td><code>services.bi_tools</code></td>
+<td><code>services.bi_platforms</code></td>
 <td>BI 平台凭据与数据集物化配置</td>
 <td><code>bi_platform</code></td>
 </tr>
@@ -4299,7 +4299,7 @@
 <ul>
 <li><a href="../../adapters/db_adapters/">数据库适配器</a> - 安装 MySQL、Snowflake、StarRocks 等插件适配器</li>
 <li><a href="../semantic_layer/">语义层配置</a> - 配置语义适配器</li>
-<li><a href="../bi_tools/">BI 工具配置</a> - 配置 Superset 或 Grafana</li>
+<li><a href="../bi_platforms/">BI 平台配置</a> - 配置 Superset 或 Grafana</li>
 <li><a href="../schedulers/">调度器配置</a> - 配置 Airflow 等调度器</li>
 <li><a href="../../cli-commands/">CLI 命令</a> - 查看 <code>configure</code>、<code>init</code>、<code>service</code> 等完整命令说明</li>
 </ul>

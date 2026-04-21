@@ -1445,7 +1445,7 @@
   <span class="md-ellipsis">
     
   
-    IM 网关 (Claw)
+    IM 网关
   
 
     
@@ -1461,7 +1461,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM 网关 (Claw)
+    IM 网关
   
 
           </label>
@@ -1474,7 +1474,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
@@ -1502,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1530,7 +1530,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
@@ -2520,14 +2520,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/bi_tools/" class="md-nav__link">
+      <a href="../../configuration/bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI 工具
+    BI 平台
   
 
     
@@ -4267,7 +4267,7 @@
 - <code>project_root</code> 是当前 Datus 项目的根目录。</p>
 <h3 id="_7">选择规则<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>services.semantic_layer</code> 下的 key 就是 adapter type，例如 <code>metricflow</code>。</li>
+<li><code>services.semantic_layer</code> 下的 key <strong>必须等于 adapter type</strong>（例如 <code>metricflow</code>）。如果同时写了 <code>type:</code> 字段，其值必须与 key 一致，否则 Datus 会在启动时抛出配置错误。比较时会先对 key 与 <code>type</code> 做 lowercase + trim 处理，因此 <code>MetricFlow</code> 或 <code>metricflow</code> 也会被视为与 <code>metricflow</code> 匹配。</li>
 <li>语义相关节点通过 <code>semantic_adapter</code> 选择适配器。</li>
 <li>如果只配置了一个 semantic layer，省略 <code>semantic_adapter</code> 时会自动使用它。</li>
 <li>如果配置了多个 semantic layer，则必须显式填写 <code>semantic_adapter</code>。</li>

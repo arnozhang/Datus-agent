@@ -1710,7 +1710,7 @@
   <span class="md-ellipsis">
     
   
-    IM 网关 (Claw)
+    IM 网关
   
 
     
@@ -1726,7 +1726,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM 网关 (Claw)
+    IM 网关
   
 
           </label>
@@ -1739,7 +1739,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
@@ -1767,7 +1767,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1795,7 +1795,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
@@ -2785,14 +2785,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/bi_tools/" class="md-nav__link">
+      <a href="../../configuration/bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI 工具
+    BI 平台
   
 
     
@@ -3952,7 +3952,7 @@
 <li>遵循平台特定的 skill 工作流，构建完整可发布的仪表盘</li>
 </ul>
 <h2 id="_2">快速开始<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>确保已在 <code>agent.yml</code> 中配置 <code>agent.services.bi_tools</code> 并安装了对应的 adapter 包：</p>
+<p>确保已在 <code>agent.yml</code> 中配置 <code>agent.services.bi_platforms</code> 并安装了对应的 adapter 包：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>datus-bi-superset<span class="w">   </span><span class="c1"># Superset</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="c1"># 或</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>datus-bi-grafana<span class="w">    </span><span class="c1"># Grafana</span>
@@ -4089,7 +4089,7 @@
 <h3 id="agentyml">agent.yml<a class="headerlink" href="#agentyml" title="Permanent link">&para;</a></h3>
 <div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">agent</span><span class="p">:</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">bi_tools</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
 </span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
 </span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
 </span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;http://localhost:8088&quot;</span>
@@ -4110,7 +4110,7 @@
 </span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a><span class="w">    </span><span class="nt">gen_dashboard</span><span class="p">:</span>
 </span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a><span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">claude</span><span class="w">           </span><span class="c1"># 可选：默认使用已配置的模型</span>
 </span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a><span class="w">      </span><span class="nt">max_turns</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w">           </span><span class="c1"># 可选：默认为 30</span>
-</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">      </span><span class="nt">bi_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span><span class="w">   </span><span class="c1"># 可选：当只配置一个 BI 工具时可自动检测</span>
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a><span class="w">      </span><span class="nt">bi_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span><span class="w">   </span><span class="c1"># 可选：当只配置一个 BI 平台时可自动检测</span>
 </span></code></pre></div>
 <h3 id="_7">配置参数<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <table>
@@ -4138,53 +4138,53 @@
 <tr>
 <td><code>bi_platform</code></td>
 <td>否</td>
-<td><code>services.bi_tools</code> 中的平台键（如 <code>superset</code>、<code>grafana</code>）</td>
-<td>仅配置一个 BI 工具时自动检测</td>
+<td><code>services.bi_platforms</code> 中的平台键（如 <code>superset</code>、<code>grafana</code>）</td>
+<td>仅配置一个 BI 平台时自动检测</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.type</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.type</code></td>
 <td>否</td>
 <td>BI 平台类型；如果填写，必须与配置键一致</td>
 <td>使用配置键</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.api_url</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.api_url</code></td>
 <td>是</td>
 <td>BI 平台 API 地址</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.username</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.username</code></td>
 <td>Superset</td>
 <td>登录用户名</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.password</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.password</code></td>
 <td>Superset</td>
 <td>登录密码</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.api_key</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.api_key</code></td>
 <td>Grafana</td>
 <td>Grafana API Key</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.dataset_db.uri</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.dataset_db.uri</code></td>
 <td>是</td>
 <td>物化目标数据库的 SQLAlchemy URI</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.dataset_db.schema</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.dataset_db.schema</code></td>
 <td>否</td>
 <td>物化表的 schema</td>
 <td>—</td>
 </tr>
 <tr>
-<td><code>services.bi_tools.&lt;platform&gt;.dataset_db.datasource_name</code></td>
+<td><code>services.bi_platforms.&lt;platform&gt;.dataset_db.datasource_name</code></td>
 <td>Grafana</td>
 <td>Grafana datasource 名称</td>
 <td>—</td>
@@ -4192,7 +4192,7 @@
 </tbody>
 </table>
 <p>所有敏感值支持 <code>${ENV_VAR}</code> 环境变量替换。</p>
-<p><code>services.bi_tools</code> 是 BI 凭据的唯一运行时来源。顶层 <code>dashboard:</code> 已不再读取。</p>
+<p><code>services.bi_platforms</code> 是 BI 凭据的唯一运行时来源。顶层 <code>dashboard:</code> 已不再读取。</p>
 <h2 id="_8">平台差异对比<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <table>
 <thead>

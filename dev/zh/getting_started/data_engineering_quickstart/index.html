@@ -1615,7 +1615,7 @@
   <span class="md-ellipsis">
     
   
-    IM 网关 (Claw)
+    IM 网关
   
 
     
@@ -1631,7 +1631,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM 网关 (Claw)
+    IM 网关
   
 
           </label>
@@ -1644,7 +1644,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
@@ -1672,7 +1672,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1700,7 +1700,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
@@ -2690,14 +2690,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/bi_tools/" class="md-nav__link">
+      <a href="../../configuration/bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI 工具
+    BI 平台
   
 
     
@@ -3854,7 +3854,7 @@
 </span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">    </span><span class="nt">semantic_layer</span><span class="p">:</span>
 </span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">      </span><span class="nt">metricflow</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">{}</span>
 </span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>
-</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">bi_tools</span><span class="p">:</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
 </span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
 </span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
 </span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://127.0.0.1:8088</span>
@@ -3943,7 +3943,7 @@
 <p>这条 Superset 工作流内部会依次执行：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>write_query -&gt; create_dataset -&gt; create_chart -&gt; create_dashboard -&gt; add_chart_to_dashboard
 </span></code></pre></div>
-<p>因为 <code>bi_tools.superset.dataset_db</code> 已经指向本地 Superset 所用的 PostgreSQL，Datus 会把查询结果物化进去，并自动注册成 Superset dataset。</p>
+<p>因为 <code>bi_platforms.superset.dataset_db</code> 已经指向本地 Superset 所用的 PostgreSQL，Datus 会把查询结果物化进去，并自动注册成 Superset dataset。</p>
 <h2 id="10">步骤 10：验证端到端结果<a class="headerlink" href="#10" title="Permanent link">&para;</a></h2>
 <p>走完整条链路后，你应该能确认：</p>
 <ul>

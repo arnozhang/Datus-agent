@@ -1,6 +1,6 @@
 
 <!doctype html>
-<html lang="en" class="no-js">
+<html lang="zh" class="no-js">
   <head>
     
       <meta charset="utf-8">
@@ -8,35 +8,35 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/claw/feishu/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/zh/configuration/bi_platforms/">
       
       
-        <link rel="prev" href="../slack/">
+        <link rel="prev" href="../semantic_layer/">
       
       
-        <link rel="next" href="../../knowledge_base/introduction/">
+        <link rel="next" href="../schedulers/">
       
       
         
-          <link rel="alternate" href="./" hreflang="en">
+          <link rel="alternate" href="../../../configuration/bi_platforms/" hreflang="en">
         
-          <link rel="alternate" href="../../zh/claw/feishu/" hreflang="zh">
+          <link rel="alternate" href="./" hreflang="zh">
         
       
       
-      <link rel="icon" href="../../assets/logo-light.png">
+      <link rel="icon" href="../../../assets/logo-light.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
     
     
       
-        <title>Feishu - Datus Docs</title>
+        <title>BI 平台 - Datus Docs</title>
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -49,9 +49,9 @@
       
     
     
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
   
@@ -86,8 +86,8 @@
     <div data-md-component="skip">
       
         
-        <a href="#feishu-lark-adapter" class="md-skip">
-          Skip to content
+        <a href="#bi-platforms-configuration" class="md-skip">
+          跳转至
         </a>
       
     </div>
@@ -103,10 +103,10 @@
       
 
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../../" title="Datus Docs" class="md-header__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
-  <img src="../../assets/logo-light.png" alt="logo">
+  <img src="../../../assets/logo-light.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Feishu
+              BI 平台
             
           </span>
         </div>
@@ -173,20 +173,20 @@
       <div class="md-header__option">
   <div class="md-select">
     
-    <button class="md-header__button md-icon" aria-label="Select language">
+    <button class="md-header__button md-icon" aria-label="选择当前语言">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
     </button>
     <div class="md-select__inner">
       <ul class="md-select__list">
         
           <li class="md-select__item">
-            <a href="./" hreflang="en" class="md-select__link">
+            <a href="../../../configuration/bi_platforms/" hreflang="en" class="md-select__link">
               English
             </a>
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/claw/feishu/" hreflang="zh" class="md-select__link">
+            <a href="./" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -207,16 +207,16 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
-      <nav class="md-search__options" aria-label="Search">
+      <nav class="md-search__options" aria-label="查找">
         
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
           
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
@@ -227,7 +227,7 @@
       <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
-            Initializing search
+            正在初始化搜索引擎
           </div>
           <ol class="md-search-result__list" role="presentation"></ol>
         </div>
@@ -239,7 +239,7 @@
     
     
       <div class="md-header__source">
-        <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -260,7 +260,7 @@
         
           
             
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
   <div class="md-grid">
     <ul class="md-tabs__list">
       
@@ -274,13 +274,13 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../.." class="md-tabs__link">
+        <a href="../../" class="md-tabs__link">
           
   
   
     
   
-  Home
+  首页
 
         </a>
       </li>
@@ -300,7 +300,7 @@
   
     
   
-  Release Notes
+  发布说明
 
       </a>
     </li>
@@ -327,18 +327,18 @@
   
 
 
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
+    <a href="../../" title="Datus Docs" class="md-nav__button md-logo" aria-label="Datus Docs" data-md-component="logo">
       
-  <img src="../../assets/logo-light.png" alt="logo">
+  <img src="../../../assets/logo-light.png" alt="logo">
 
     </a>
     Datus Docs
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/Datus-ai/Datus-agent" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/Datus-ai/Datus-agent" title="前往仓库" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
@@ -414,14 +414,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../.." class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Home
+    首页
   
 
     
@@ -443,7 +443,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Home
+    首页
   
 
           </label>
@@ -491,7 +491,7 @@
   <span class="md-ellipsis">
     
   
-    Getting Started
+    入门指南
   
 
     
@@ -507,7 +507,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Getting Started
+    入门指南
   
 
           </label>
@@ -527,7 +527,7 @@
   <span class="md-ellipsis">
     
   
-    Quickstart
+    快速开始
   
 
     
@@ -555,7 +555,7 @@
   <span class="md-ellipsis">
     
   
-    Data Engineering Quickstart
+    数据工程快速开始
   
 
     
@@ -583,7 +583,7 @@
   <span class="md-ellipsis">
     
   
-    Contextual Data Engineering
+    上下文数据工程
   
 
     
@@ -611,7 +611,7 @@
   <span class="md-ellipsis">
     
   
-    Tutorial
+    教程
   
 
     
@@ -709,7 +709,7 @@
   <span class="md-ellipsis">
     
   
-    CLI
+    命令行
   
 
     
@@ -725,7 +725,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    CLI
+    命令行
   
 
           </label>
@@ -745,7 +745,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -773,7 +773,7 @@
   <span class="md-ellipsis">
     
   
-    Chat Command
+    聊天命令
   
 
     
@@ -801,7 +801,7 @@
   <span class="md-ellipsis">
     
   
-    Context Command
+    上下文命令
   
 
     
@@ -829,7 +829,7 @@
   <span class="md-ellipsis">
     
   
-    Execution Command
+    执行命令
   
 
     
@@ -857,7 +857,7 @@
   <span class="md-ellipsis">
     
   
-    MCP Extensions
+    MCP 扩展
   
 
     
@@ -885,7 +885,7 @@
   <span class="md-ellipsis">
     
   
-    SQL Execution
+    SQL 执行
   
 
     
@@ -913,7 +913,7 @@
   <span class="md-ellipsis">
     
   
-    Skill Command
+    技能命令
   
 
     
@@ -941,7 +941,7 @@
   <span class="md-ellipsis">
     
   
-    Reference
+    参考
   
 
     
@@ -969,7 +969,7 @@
   <span class="md-ellipsis">
     
   
-    Plan Mode
+    计划模式
   
 
     
@@ -1079,7 +1079,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1107,7 +1107,7 @@
   <span class="md-ellipsis">
     
   
-    Built-in subagents
+    内置 subagent
   
 
     
@@ -1135,7 +1135,7 @@
   <span class="md-ellipsis">
     
   
-    Customized subagents
+    自定义 subagent
   
 
     
@@ -1163,7 +1163,7 @@
   <span class="md-ellipsis">
     
   
-    Generate Dashboard
+    生成 Dashboard
   
 
     
@@ -1191,7 +1191,7 @@
   <span class="md-ellipsis">
     
   
-    Generate Metrics
+    生成指标
   
 
     
@@ -1219,7 +1219,7 @@
   <span class="md-ellipsis">
     
   
-    Generate Semantic Model
+    生成语义模型
   
 
     
@@ -1247,7 +1247,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler
+    调度器
   
 
     
@@ -1395,7 +1395,7 @@
   <span class="md-ellipsis">
     
   
-    Chatbot
+    chatbot
   
 
     
@@ -1413,10 +1413,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -1433,11 +1431,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
         
           
           <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
@@ -1447,7 +1445,7 @@
   <span class="md-ellipsis">
     
   
-    IM Gateway (Claw)
+    IM 网关
   
 
     
@@ -1458,12 +1456,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM Gateway (Claw)
+    IM 网关
   
 
           </label>
@@ -1476,14 +1474,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../../gateway/introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1504,7 +1502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../slack/" class="md-nav__link">
+      <a href="../../gateway/slack/" class="md-nav__link">
         
   
   
@@ -1529,44 +1527,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Feishu
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../gateway/feishu/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Feishu
+    飞书
   
 
     
@@ -1575,219 +1546,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Prerequisites
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-1-install-the-sdk" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 1: Install the SDK
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 2: Create a Self-Built App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-get-app-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Get App Credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-enable-bot-capability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Enable Bot Capability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Configure Event Subscription (WebSocket Mode)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-configure-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Configure Permissions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-publish-the-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 7: Publish the App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-configure-datus-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 8: Configure Datus Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "app_ticket is empty" or authentication failure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot connects but doesn't receive messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-doesnt-reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot doesn't reply
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "permission denied" errors in logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WebSocket connection keeps dropping
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1847,7 +1605,7 @@
   <span class="md-ellipsis">
     
   
-    Knowledge Base
+    知识库
   
 
     
@@ -1863,7 +1621,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Knowledge Base
+    知识库
   
 
           </label>
@@ -1883,7 +1641,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -1911,7 +1669,7 @@
   <span class="md-ellipsis">
     
   
-    External Knowledge
+    外部知识
   
 
     
@@ -1939,7 +1697,7 @@
   <span class="md-ellipsis">
     
   
-    Platform Documentation
+    平台文档
   
 
     
@@ -1967,7 +1725,7 @@
   <span class="md-ellipsis">
     
   
-    Metadata
+    元数据
   
 
     
@@ -1995,7 +1753,7 @@
   <span class="md-ellipsis">
     
   
-    Semantic Models
+    语义模型
   
 
     
@@ -2023,7 +1781,7 @@
   <span class="md-ellipsis">
     
   
-    Metrics
+    指标
   
 
     
@@ -2079,7 +1837,7 @@
   <span class="md-ellipsis">
     
   
-    Reference Template
+    SQL模板
   
 
     
@@ -2139,7 +1897,7 @@
   <span class="md-ellipsis">
     
   
-    Workflow
+    工作流
   
 
     
@@ -2155,7 +1913,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Workflow
+    工作流
   
 
           </label>
@@ -2175,7 +1933,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2203,7 +1961,7 @@
   <span class="md-ellipsis">
     
   
-    Nodes
+    节点
   
 
     
@@ -2231,7 +1989,7 @@
   <span class="md-ellipsis">
     
   
-    Orchestration
+    编排
   
 
     
@@ -2355,7 +2113,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2383,7 +2141,7 @@
   <span class="md-ellipsis">
     
   
-    Deployment
+    部署
   
 
     
@@ -2439,7 +2197,7 @@
   <span class="md-ellipsis">
     
   
-    Knowledge Base API
+    知识库 API
   
 
     
@@ -2465,8 +2223,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -2491,11 +2251,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" checked>
         
           
           <label class="md-nav__link" for="__nav_1_10" id="__nav_1_10_label" tabindex="0">
@@ -2505,7 +2265,7 @@
   <span class="md-ellipsis">
     
   
-    Configuration
+    配置
   
 
     
@@ -2516,12 +2276,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_10">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Configuration
+    配置
   
 
           </label>
@@ -2534,14 +2294,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -2562,7 +2322,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/agent/" class="md-nav__link">
+      <a href="../agent/" class="md-nav__link">
         
   
   
@@ -2590,14 +2350,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/workflow/" class="md-nav__link">
+      <a href="../workflow/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Workflow
+    工作流
   
 
     
@@ -2618,14 +2378,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/benchmark/" class="md-nav__link">
+      <a href="../benchmark/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Benchmark
+    基准测试
   
 
     
@@ -2643,8 +2403,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -2663,11 +2425,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" checked>
         
           
           <label class="md-nav__link" for="__nav_1_10_5" id="__nav_1_10_5_label" tabindex="0">
@@ -2677,7 +2439,7 @@
   <span class="md-ellipsis">
     
   
-    Services
+    服务
   
 
     
@@ -2688,12 +2450,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_10_5">
             <span class="md-nav__icon md-icon"></span>
             
   
-    Services
+    服务
   
 
           </label>
@@ -2706,14 +2468,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/databases/" class="md-nav__link">
+      <a href="../databases/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Databases
+    数据库
   
 
     
@@ -2734,14 +2496,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/semantic_layer/" class="md-nav__link">
+      <a href="../semantic_layer/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Semantic Layer
+    语义层
   
 
     
@@ -2759,17 +2521,44 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../configuration/bi_tools/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    BI 平台
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI Tools
+    BI 平台
   
 
     
@@ -2778,6 +2567,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Structure
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selection-rules" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selection Rules
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notes
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2790,14 +2632,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/schedulers/" class="md-nav__link">
+      <a href="../schedulers/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Schedulers
+    调度器
   
 
     
@@ -2826,7 +2668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/storage/" class="md-nav__link">
+      <a href="../storage/" class="md-nav__link">
         
   
   
@@ -2854,14 +2696,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../configuration/nodes/" class="md-nav__link">
+      <a href="../nodes/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Nodes
+    节点
   
 
     
@@ -2921,7 +2763,7 @@
   <span class="md-ellipsis">
     
   
-    Adapters
+    适配器
   
 
     
@@ -2937,7 +2779,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Adapters
+    适配器
   
 
           </label>
@@ -2957,7 +2799,7 @@
   <span class="md-ellipsis">
     
   
-    Database Adapters
+    数据库适配器
   
 
     
@@ -2985,7 +2827,7 @@
   <span class="md-ellipsis">
     
   
-    Semantic Adapters
+    语义层适配器
   
 
     
@@ -3013,7 +2855,7 @@
   <span class="md-ellipsis">
     
   
-    BI Adapters
+    BI 适配器
   
 
     
@@ -3041,7 +2883,7 @@
   <span class="md-ellipsis">
     
   
-    Scheduler Adapters
+    Scheduler 适配器
   
 
     
@@ -3095,7 +2937,7 @@
   <span class="md-ellipsis">
     
   
-    Benchmark
+    基准测试
   
 
     
@@ -3111,7 +2953,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Benchmark
+    基准测试
   
 
           </label>
@@ -3131,7 +2973,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -3185,7 +3027,7 @@
   <span class="md-ellipsis">
     
   
-    Metricflow
+    MetricFlow
   
 
     
@@ -3201,7 +3043,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Metricflow
+    MetricFlow
   
 
           </label>
@@ -3221,7 +3063,7 @@
   <span class="md-ellipsis">
     
   
-    Introduction
+    介绍
   
 
     
@@ -3279,7 +3121,7 @@
   <span class="md-ellipsis">
     
   
-    Integration
+    集成
   
 
     
@@ -3295,7 +3137,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Integration
+    集成
   
 
           </label>
@@ -3371,7 +3213,7 @@
   <span class="md-ellipsis">
     
   
-    Auto Memory
+    自动记忆
   
 
     
@@ -3637,7 +3479,7 @@
   <span class="md-ellipsis">
     
   
-    Release Notes
+    发布说明
   
 
     
@@ -3663,7 +3505,7 @@
                   <div class="md-sidebar__inner">
                     
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+<nav class="md-nav md-nav--secondary" aria-label="目录">
   
   
   
@@ -3672,15 +3514,15 @@
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
-      Table of contents
+      目录
     </label>
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#structure" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Structure
       
     </span>
   </a>
@@ -3688,10 +3530,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-1-install-the-sdk" class="md-nav__link">
+  <a href="#selection-rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 1: Install the SDK
+        Selection Rules
       
     </span>
   </a>
@@ -3699,173 +3541,13 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
+  <a href="#notes" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Step 2: Create a Self-Built App
+        Notes
       
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-3-get-app-credentials" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 3: Get App Credentials
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-4-enable-bot-capability" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 4: Enable Bot Capability
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 5: Configure Event Subscription (WebSocket Mode)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-6-configure-permissions" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 6: Configure Permissions
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-7-publish-the-app" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 7: Publish the App
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#step-8-configure-datus-agent" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Step 8: Configure Datus Agent
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-reference" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Configuration Reference
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#verify-the-connection" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Verify the Connection
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#troubleshooting" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Troubleshooting
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Troubleshooting">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "app_ticket is empty" or authentication failure
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot connects but doesn't receive messages
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#bot-doesnt-reply" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Bot doesn't reply
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        "permission denied" errors in logs
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        WebSocket connection keeps dropping
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -3886,7 +3568,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/claw/feishu.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/configuration/bi_platforms.md" title="编辑此页" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3894,257 +3576,44 @@
   
 
 
-<h1 id="feishu-lark-adapter">Feishu (Lark) Adapter<a class="headerlink" href="#feishu-lark-adapter" title="Permanent link">&para;</a></h1>
-<p>This guide walks you through setting up a Feishu (Lark) bot that connects to Datus Agent via the Claw IM gateway. Feishu uses the official <code>lark-oapi</code> SDK with <strong>WebSocket long connection</strong>, which means the bot connects outbound — no public URL or webhook endpoint is required.</p>
-<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
+<h1 id="bi-platforms-configuration">BI Platforms Configuration<a class="headerlink" href="#bi-platforms-configuration" title="Permanent link">&para;</a></h1>
+<p>BI platform connections are configured under <code>agent.services.bi_platforms</code>.</p>
+<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">bi_platforms</span><span class="p">:</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_USER}</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_PASSWORD}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nt">dataset_db</span><span class="p">:</span>
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_DB_URI}</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">          </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
+</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">grafana</span><span class="p">:</span>
+</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana</span>
+</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:3000</span>
+</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAFANA_API_KEY}</span>
+</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="nt">dataset_db</span><span class="p">:</span>
+</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAFANA_DB_URI}</span>
+</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">          </span><span class="nt">datasource_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL</span>
+</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
+</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
+</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">gen_dashboard</span><span class="p">:</span>
+</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="nt">bi_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
+</span></code></pre></div>
+<h2 id="selection-rules">Selection Rules<a class="headerlink" href="#selection-rules" title="Permanent link">&para;</a></h2>
 <ul>
-<li>A Feishu tenant (organization) where you have developer permissions</li>
-<li>Datus Agent installed and configured</li>
+<li><code>bi_platform</code> selects one entry from <code>services.bi_platforms</code>.</li>
+<li>The config key should match the platform name, such as <code>superset</code> or <code>grafana</code>.</li>
+<li>If <code>bi_platform</code> is omitted and only one BI platform is configured, Datus auto-selects it.</li>
+<li>If multiple BI platforms are configured, set <code>bi_platform</code> explicitly.</li>
 </ul>
-<h2 id="step-1-install-the-sdk">Step 1: Install the SDK<a class="headerlink" href="#step-1-install-the-sdk" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>lark-oapi
-</span></code></pre></div>
-<h2 id="step-2-create-a-self-built-app">Step 2: Create a Self-Built App<a class="headerlink" href="#step-2-create-a-self-built-app" title="Permanent link">&para;</a></h2>
-<ol>
-<li>Go to <a href="https://open.feishu.cn">Feishu Open Platform</a> and log in with your Feishu account.</li>
-<li>Click your avatar in the top-right corner, then select <strong>Developer Console</strong> (or go directly to <a href="https://open.feishu.cn/app">open.feishu.cn/app</a>).</li>
-<li>Click <strong>Create Custom App</strong>.</li>
-<li>Fill in the app name (e.g., "Datus Agent") and description.</li>
-<li>Click <strong>Create</strong>.</li>
-</ol>
-<div class="admonition note">
-<p class="admonition-title">Lark (International) users</p>
-<p>If you are using the international version (Lark), go to <a href="https://open.larksuite.com">open.larksuite.com</a> instead. The setup steps are the same.</p>
-</div>
-<h2 id="step-3-get-app-credentials">Step 3: Get App Credentials<a class="headerlink" href="#step-3-get-app-credentials" title="Permanent link">&para;</a></h2>
-<ol>
-<li>After creating the app, you will be taken to the app dashboard.</li>
-<li>In the left sidebar, click <strong>Credentials &amp; Basic Info</strong>.</li>
-<li>Copy the <strong>App ID</strong> and <strong>App Secret</strong>. These are your <code>FEISHU_APP_ID</code> and <code>FEISHU_APP_SECRET</code>.</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Keep your App Secret safe</p>
-<p>The App Secret is equivalent to a password. Never share it publicly or commit it to version control. Use environment variables instead.</p>
-</div>
-<h2 id="step-4-enable-bot-capability">Step 4: Enable Bot Capability<a class="headerlink" href="#step-4-enable-bot-capability" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Features → Bot</strong>.</li>
-<li>Toggle the bot capability to <strong>Enabled</strong>.</li>
-<li>Optionally, set a bot name and avatar.</li>
-</ol>
-<h2 id="step-5-configure-event-subscription-websocket-mode">Step 5: Configure Event Subscription (WebSocket Mode)<a class="headerlink" href="#step-5-configure-event-subscription-websocket-mode" title="Permanent link">&para;</a></h2>
-<p>Claw uses the Feishu WebSocket long connection to receive events. This eliminates the need for a public callback URL.</p>
-<ol>
-<li>In the left sidebar, go to <strong>Event Subscriptions</strong>.</li>
-<li>
-<p>Under <strong>Subscription Mode</strong>, select <strong>WebSocket Mode</strong> (also labeled "Use long connection to receive events").</p>
-<div class="admonition tip">
-<p class="admonition-title">Why WebSocket Mode?</p>
-<p>WebSocket mode is ideal for Claw because it does not require a publicly accessible server. The bot initiates an outbound WebSocket connection to Feishu's servers, and events are pushed through this connection.</p>
-</div>
-</li>
-<li>
-<p>Under <strong>Event List</strong>, click <strong>Add Event</strong> and search for:</p>
-<table>
-<thead>
-<tr>
-<th>Event Name</th>
-<th>Event Key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Receive messages</td>
-<td><code>im.message.receive_v1</code></td>
-<td>Triggered when the bot receives a message</td>
-</tr>
-<tr>
-<td>Message reaction created</td>
-<td><code>im.message.reaction.created_v1</code></td>
-<td>Triggered when a user adds a reaction to a message</td>
-</tr>
-<tr>
-<td>Message reaction deleted</td>
-<td><code>im.message.reaction.deleted_v1</code></td>
-<td>Triggered when a user removes a reaction from a message</td>
-</tr>
-</tbody>
-</table>
-</li>
-<li>
-<p>Click <strong>Save</strong>.</p>
-</li>
-</ol>
-<h2 id="step-6-configure-permissions">Step 6: Configure Permissions<a class="headerlink" href="#step-6-configure-permissions" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Permissions &amp; Scopes</strong>.</li>
-<li>Search for and add the following permissions:</li>
-</ol>
-<table>
-<thead>
-<tr>
-<th>Permission</th>
-<th>Scope Key</th>
-<th>Purpose</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Read messages sent to the bot</td>
-<td><code>im:message</code></td>
-<td>Receive direct messages</td>
-</tr>
-<tr>
-<td>Read group messages</td>
-<td><code>im:message.group_msg:readonly</code></td>
-<td>Receive all group messages (required for thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>)</td>
-</tr>
-<tr>
-<td>Send messages as the bot</td>
-<td><code>im:message:send_as_bot</code></td>
-<td>Reply to users</td>
-</tr>
-<tr>
-<td>Read card info</td>
-<td><code>cardkit:card:read</code></td>
-<td>Convert message ID to card ID for streaming cards</td>
-</tr>
-<tr>
-<td>Write card content</td>
-<td><code>cardkit:card:write</code></td>
-<td>Update streaming card content and close streaming mode</td>
-</tr>
-<tr>
-<td>Get chat info</td>
-<td><code>im:chat:readonly</code></td>
-<td>Read group chat metadata (optional)</td>
-</tr>
-<tr>
-<td>Read user info</td>
-<td><code>contact:user.base:readonly</code></td>
-<td>Resolve sender names (optional)</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Group message permission</p>
-<p><code>im:message.group_msg:readonly</code> allows the bot to receive <strong>all</strong> group messages, including thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>. The bot automatically filters out irrelevant messages — only <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages and replies within an existing bot thread are processed. If you prefer a more restrictive scope, you can use <code>im:message.group_at_msg:readonly</code> instead, but thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> will not be received.</p>
-</div>
-<ol>
-<li>Click <strong>Save</strong>.</li>
-</ol>
-<div class="admonition tip">
-<p class="admonition-title">Batch import</p>
-<p>In the <strong>Permissions &amp; Scopes</strong> page, click <strong>Batch Enable</strong> and paste the following JSON to add all permissions at once:</p>
-<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:read&quot;</span><span class="p">,</span>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:write&quot;</span><span class="p">,</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="s2">&quot;contact:user.base:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="s2">&quot;im:chat:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="s2">&quot;im:message&quot;</span><span class="p">,</span>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="s2">&quot;im:message.group_msg:readonly&quot;</span><span class="p">,</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="s2">&quot;im:message:send_as_bot&quot;</span><span class="p">,</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="s2">&quot;im:resource&quot;</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">]</span>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
-</span></code></pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Required vs Optional</p>
-<p><code>im:message</code>, <code>im:message.group_msg:readonly</code>, <code>im:message:send_as_bot</code>, <code>cardkit:card:read</code>, and <code>cardkit:card:write</code> are required for full functionality (including group <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages, thread replies, and streaming card responses). The other permissions are optional and depend on your use case. Without CardKit permissions, the bot falls back to sending separate messages for each response chunk.</p>
-</div>
-<h2 id="step-7-publish-the-app">Step 7: Publish the App<a class="headerlink" href="#step-7-publish-the-app" title="Permanent link">&para;</a></h2>
-<ol>
-<li>In the left sidebar, go to <strong>Version Management &amp; Release</strong>.</li>
-<li>Click <strong>Create Version</strong>.</li>
-<li>Fill in the version number and update notes.</li>
-<li>
-<p>Click <strong>Submit for Review</strong>.</p>
-</li>
-<li>
-<p><strong>Test tenants</strong>: You can self-approve in test organizations. Go to the <strong>Testing</strong> section to add test members first.</p>
-</li>
-<li><strong>Production tenants</strong>: An admin of the organization must approve the app.</li>
-</ol>
-<div class="admonition info">
-<p class="admonition-title">App availability</p>
-<p>After approval, the app becomes available to users in the organization. Users can find and add the bot from the Feishu app directory or by searching its name.</p>
-</div>
-<h2 id="step-8-configure-datus-agent">Step 8: Configure Datus Agent<a class="headerlink" href="#step-8-configure-datus-agent" title="Permanent link">&para;</a></h2>
-<p>Add the Feishu channel to your <code>agent.yml</code>:</p>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">channels</span><span class="p">:</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">feishu-main</span><span class="p">:</span>
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feishu</span>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">extra</span><span class="p">:</span>
-</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_ID}</span>
-</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">app_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_SECRET}</span>
-</span></code></pre></div>
-<p>Set the environment variables:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_ID</span><span class="o">=</span><span class="s2">&quot;cli_xxxxxxxxxxxx&quot;</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_SECRET</span><span class="o">=</span><span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
-</span></code></pre></div>
-<h2 id="configuration-reference">Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>app_id</code></td>
-<td>Yes</td>
-<td>App ID from Feishu Open Platform</td>
-</tr>
-<tr>
-<td><code>app_secret</code></td>
-<td>Yes</td>
-<td>App Secret from Feishu Open Platform</td>
-</tr>
-</tbody>
-</table>
-<h2 id="verify-the-connection">Verify the Connection<a class="headerlink" href="#verify-the-connection" title="Permanent link">&para;</a></h2>
-<p>Start the Claw gateway and check the logs:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.claw.main<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
-</span></code></pre></div>
-<p>You should see:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Feishu adapter &#39;feishu-main&#39; connecting...
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Feishu adapter &#39;feishu-main&#39; started.
-</span></code></pre></div>
-<p>Send a message to the bot in a Feishu group or direct message. The bot should respond with the agent's analysis.</p>
-<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
-<h3 id="app_ticket-is-empty-or-authentication-failure">"app_ticket is empty" or authentication failure<a class="headerlink" href="#app_ticket-is-empty-or-authentication-failure" title="Permanent link">&para;</a></h3>
+<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
 <ul>
-<li>Verify that <code>app_id</code> and <code>app_secret</code> are correct and match the app in the Feishu Open Platform.</li>
-<li>Ensure the app has been published and approved.</li>
-</ul>
-<h3 id="bot-connects-but-doesnt-receive-messages">Bot connects but doesn't receive messages<a class="headerlink" href="#bot-connects-but-doesnt-receive-messages" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Check that the <strong>WebSocket Mode</strong> is selected (not HTTP callback mode) under Event Subscriptions.</li>
-<li>Verify the <code>im.message.receive_v1</code> event is added.</li>
-<li>Ensure the bot capability is enabled under <strong>Features → Bot</strong>.</li>
-</ul>
-<h3 id="bot-doesnt-reply">Bot doesn't reply<a class="headerlink" href="#bot-doesnt-reply" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Check that the <code>im:message:send_as_bot</code> permission has been added and approved.</li>
-<li>Verify the app version with this permission has been published.</li>
-</ul>
-<h3 id="permission-denied-errors-in-logs">"permission denied" errors in logs<a class="headerlink" href="#permission-denied-errors-in-logs" title="Permanent link">&para;</a></h3>
-<ul>
-<li>Go to <strong>Permissions &amp; Scopes</strong> and ensure all required permissions are added.</li>
-<li>After adding permissions, you must <strong>create a new version</strong> and get it approved for the permissions to take effect.</li>
-</ul>
-<h3 id="websocket-connection-keeps-dropping">WebSocket connection keeps dropping<a class="headerlink" href="#websocket-connection-keeps-dropping" title="Permanent link">&para;</a></h3>
-<ul>
-<li>The <code>lark-oapi</code> SDK handles reconnection automatically. Check network connectivity.</li>
-<li>Enable debug logging (<code>--debug</code>) to see detailed connection status.</li>
+<li><code>services.bi_platforms</code> is now the only runtime source for BI credentials.</li>
+<li>Top-level <code>dashboard:</code> is no longer read at runtime.</li>
 </ul>
 
 
@@ -4174,33 +3643,33 @@
   
     
       
-      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
         
           
-          <a href="../slack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Slack">
+          <a href="../semantic_layer/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 语义层">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
             </div>
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Previous
+                上一页
               </span>
               <div class="md-ellipsis">
-                Slack
+                语义层
               </div>
             </div>
           </a>
         
         
           
-          <a href="../../knowledge_base/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
+          <a href="../schedulers/" class="md-footer__link md-footer__link--next" aria-label="下一页: 调度器">
             <div class="md-footer__title">
               <span class="md-footer__direction">
-                Next
+                下一页
               </span>
               <div class="md-ellipsis">
-                Introduction
+                调度器
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -4290,10 +3759,10 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.footer", "navigation.tabs", "navigation.tracking", "navigation.indexes", "content.code.copy", "content.code.select", "content.action.edit"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
     
   </body>

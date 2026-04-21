@@ -8,19 +8,19 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/configuration/bi_tools/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/gateway/feishu/">
       
       
-        <link rel="prev" href="../semantic_layer/">
+        <link rel="prev" href="../slack/">
       
       
-        <link rel="next" href="../schedulers/">
+        <link rel="next" href="../../knowledge_base/introduction/">
       
       
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../zh/configuration/bi_tools/" hreflang="zh">
+          <link rel="alternate" href="../../zh/gateway/feishu/" hreflang="zh">
         
       
       
@@ -29,7 +29,7 @@
     
     
       
-        <title>BI Tools - Datus Docs</title>
+        <title>Feishu - Datus Docs</title>
       
     
     
@@ -86,7 +86,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bi-tools-configuration" class="md-skip">
+        <a href="#feishu-lark-adapter" class="md-skip">
           Skip to content
         </a>
       
@@ -123,7 +123,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              BI Tools
+              Feishu
             
           </span>
         </div>
@@ -186,7 +186,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/configuration/bi_tools/" hreflang="zh" class="md-select__link">
+            <a href="../../zh/gateway/feishu/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -1413,8 +1413,10 @@
                 
   
   
+    
   
   
+  
     
     
       
@@ -1431,11 +1433,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_6" checked>
         
           
           <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
@@ -1445,7 +1447,7 @@
   <span class="md-ellipsis">
     
   
-    IM Gateway (Claw)
+    IM Gateway
   
 
     
@@ -1456,12 +1458,12 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_6">
             <span class="md-nav__icon md-icon"></span>
             
   
-    IM Gateway (Claw)
+    IM Gateway
   
 
           </label>
@@ -1474,7 +1476,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -1502,7 +1504,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../claw/slack/" class="md-nav__link">
+      <a href="../slack/" class="md-nav__link">
         
   
   
@@ -1527,10 +1529,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../claw/feishu/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Feishu
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1546,6 +1575,219 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prerequisites
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-1-install-the-sdk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Install the SDK
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Create a Self-Built App
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-get-app-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Get App Credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-bot-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Enable Bot Capability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Configure Event Subscription (WebSocket Mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-configure-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Configure Permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-publish-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Publish the App
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-configure-datus-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Configure Datus Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "app_ticket is empty" or authentication failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot connects but doesn't receive messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-doesnt-reply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot doesn't reply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "permission denied" errors in logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSocket connection keeps dropping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -2223,10 +2465,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2251,11 +2491,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10" >
         
           
           <label class="md-nav__link" for="__nav_1_10" id="__nav_1_10_label" tabindex="0">
@@ -2276,7 +2516,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_10_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_10">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2294,7 +2534,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../introduction/" class="md-nav__link">
+      <a href="../../configuration/introduction/" class="md-nav__link">
         
   
   
@@ -2322,7 +2562,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../agent/" class="md-nav__link">
+      <a href="../../configuration/agent/" class="md-nav__link">
         
   
   
@@ -2350,7 +2590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../workflow/" class="md-nav__link">
+      <a href="../../configuration/workflow/" class="md-nav__link">
         
   
   
@@ -2378,7 +2618,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../benchmark/" class="md-nav__link">
+      <a href="../../configuration/benchmark/" class="md-nav__link">
         
   
   
@@ -2403,10 +2643,8 @@
                 
   
   
-    
   
   
-  
     
     
       
@@ -2425,11 +2663,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_10_5" >
         
           
           <label class="md-nav__link" for="__nav_1_10_5" id="__nav_1_10_5_label" tabindex="0">
@@ -2450,7 +2688,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_1_10_5_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_1_10_5">
             <span class="md-nav__icon md-icon"></span>
             
@@ -2468,7 +2706,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../databases/" class="md-nav__link">
+      <a href="../../configuration/databases/" class="md-nav__link">
         
   
   
@@ -2496,7 +2734,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../semantic_layer/" class="md-nav__link">
+      <a href="../../configuration/semantic_layer/" class="md-nav__link">
         
   
   
@@ -2521,44 +2759,17 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    BI Tools
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../configuration/bi_platforms/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    BI Tools
+    BI Platforms
   
 
     
@@ -2567,59 +2778,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#selection-rules" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Selection Rules
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Notes
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -2632,7 +2790,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../schedulers/" class="md-nav__link">
+      <a href="../../configuration/schedulers/" class="md-nav__link">
         
   
   
@@ -2668,7 +2826,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../storage/" class="md-nav__link">
+      <a href="../../configuration/storage/" class="md-nav__link">
         
   
   
@@ -2696,7 +2854,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../nodes/" class="md-nav__link">
+      <a href="../../configuration/nodes/" class="md-nav__link">
         
   
   
@@ -3519,10 +3677,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure" class="md-nav__link">
+  <a href="#prerequisites" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Structure
+        Prerequisites
       
     </span>
   </a>
@@ -3530,10 +3688,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selection-rules" class="md-nav__link">
+  <a href="#step-1-install-the-sdk" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selection Rules
+        Step 1: Install the SDK
       
     </span>
   </a>
@@ -3541,13 +3699,173 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#notes" class="md-nav__link">
+  <a href="#step-2-create-a-self-built-app" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Notes
+        Step 2: Create a Self-Built App
       
     </span>
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-3-get-app-credentials" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Get App Credentials
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-4-enable-bot-capability" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Enable Bot Capability
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-5-configure-event-subscription-websocket-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Configure Event Subscription (WebSocket Mode)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-6-configure-permissions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 6: Configure Permissions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-7-publish-the-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 7: Publish the App
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#step-8-configure-datus-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 8: Configure Datus Agent
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-reference" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configuration Reference
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-connection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the Connection
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#troubleshooting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Troubleshooting
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Troubleshooting">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#app_ticket-is-empty-or-authentication-failure" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "app_ticket is empty" or authentication failure
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-connects-but-doesnt-receive-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot connects but doesn't receive messages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bot-doesnt-reply" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bot doesn't reply
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#permission-denied-errors-in-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "permission denied" errors in logs
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#websocket-connection-keeps-dropping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        WebSocket connection keeps dropping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3568,7 +3886,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/configuration/bi_tools.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/gateway/feishu.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3576,44 +3894,257 @@
   
 
 
-<h1 id="bi-tools-configuration">BI Tools Configuration<a class="headerlink" href="#bi-tools-configuration" title="Permanent link">&para;</a></h1>
-<p>BI platform connections are configured under <code>agent.services.bi_tools</code>.</p>
-<h2 id="structure">Structure<a class="headerlink" href="#structure" title="Permanent link">&para;</a></h2>
-<div class="language-yaml highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="nt">agent</span><span class="p">:</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nt">services</span><span class="p">:</span>
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">    </span><span class="nt">bi_tools</span><span class="p">:</span>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">      </span><span class="nt">superset</span><span class="p">:</span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:8088</span>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">        </span><span class="nt">username</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_USER}</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">        </span><span class="nt">password</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_PASSWORD}</span>
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">        </span><span class="nt">dataset_db</span><span class="p">:</span>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${SUPERSET_DB_URI}</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a><span class="w">          </span><span class="nt">schema</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">public</span>
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="w">      </span><span class="nt">grafana</span><span class="p">:</span>
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a><span class="w">        </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">grafana</span>
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a><span class="w">        </span><span class="nt">api_url</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://localhost:3000</span>
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="w">        </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAFANA_API_KEY}</span>
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a><span class="w">        </span><span class="nt">dataset_db</span><span class="p">:</span>
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a><span class="w">          </span><span class="nt">uri</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${GRAFANA_DB_URI}</span>
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a><span class="w">          </span><span class="nt">datasource_name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgreSQL</span>
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a><span class="w">  </span><span class="nt">agentic_nodes</span><span class="p">:</span>
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a><span class="w">    </span><span class="nt">gen_dashboard</span><span class="p">:</span>
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a><span class="w">      </span><span class="nt">bi_platform</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">superset</span>
-</span></code></pre></div>
-<h2 id="selection-rules">Selection Rules<a class="headerlink" href="#selection-rules" title="Permanent link">&para;</a></h2>
+<h1 id="feishu-lark-adapter">Feishu (Lark) Adapter<a class="headerlink" href="#feishu-lark-adapter" title="Permanent link">&para;</a></h1>
+<p>This guide walks you through setting up a Feishu (Lark) bot that connects to Datus Agent via the Datus Gateway IM module. Feishu uses the official <code>lark-oapi</code> SDK with <strong>WebSocket long connection</strong>, which means the bot connects outbound — no public URL or webhook endpoint is required.</p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h2>
 <ul>
-<li><code>bi_platform</code> selects one entry from <code>services.bi_tools</code>.</li>
-<li>The config key should match the platform name, such as <code>superset</code> or <code>grafana</code>.</li>
-<li>If <code>bi_platform</code> is omitted and only one BI platform is configured, Datus auto-selects it.</li>
-<li>If multiple BI platforms are configured, set <code>bi_platform</code> explicitly.</li>
+<li>A Feishu tenant (organization) where you have developer permissions</li>
+<li>Datus Agent installed and configured</li>
 </ul>
-<h2 id="notes">Notes<a class="headerlink" href="#notes" title="Permanent link">&para;</a></h2>
+<h2 id="step-1-install-the-sdk">Step 1: Install the SDK<a class="headerlink" href="#step-1-install-the-sdk" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>lark-oapi
+</span></code></pre></div>
+<h2 id="step-2-create-a-self-built-app">Step 2: Create a Self-Built App<a class="headerlink" href="#step-2-create-a-self-built-app" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Go to <a href="https://open.feishu.cn">Feishu Open Platform</a> and log in with your Feishu account.</li>
+<li>Click your avatar in the top-right corner, then select <strong>Developer Console</strong> (or go directly to <a href="https://open.feishu.cn/app">open.feishu.cn/app</a>).</li>
+<li>Click <strong>Create Custom App</strong>.</li>
+<li>Fill in the app name (e.g., "Datus Agent") and description.</li>
+<li>Click <strong>Create</strong>.</li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Lark (International) users</p>
+<p>If you are using the international version (Lark), go to <a href="https://open.larksuite.com">open.larksuite.com</a> instead. The setup steps are the same.</p>
+</div>
+<h2 id="step-3-get-app-credentials">Step 3: Get App Credentials<a class="headerlink" href="#step-3-get-app-credentials" title="Permanent link">&para;</a></h2>
+<ol>
+<li>After creating the app, you will be taken to the app dashboard.</li>
+<li>In the left sidebar, click <strong>Credentials &amp; Basic Info</strong>.</li>
+<li>Copy the <strong>App ID</strong> and <strong>App Secret</strong>. These are your <code>FEISHU_APP_ID</code> and <code>FEISHU_APP_SECRET</code>.</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Keep your App Secret safe</p>
+<p>The App Secret is equivalent to a password. Never share it publicly or commit it to version control. Use environment variables instead.</p>
+</div>
+<h2 id="step-4-enable-bot-capability">Step 4: Enable Bot Capability<a class="headerlink" href="#step-4-enable-bot-capability" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In the left sidebar, go to <strong>Features → Bot</strong>.</li>
+<li>Toggle the bot capability to <strong>Enabled</strong>.</li>
+<li>Optionally, set a bot name and avatar.</li>
+</ol>
+<h2 id="step-5-configure-event-subscription-websocket-mode">Step 5: Configure Event Subscription (WebSocket Mode)<a class="headerlink" href="#step-5-configure-event-subscription-websocket-mode" title="Permanent link">&para;</a></h2>
+<p>Datus Gateway uses the Feishu WebSocket long connection to receive events. This eliminates the need for a public callback URL.</p>
+<ol>
+<li>In the left sidebar, go to <strong>Event Subscriptions</strong>.</li>
+<li>
+<p>Under <strong>Subscription Mode</strong>, select <strong>WebSocket Mode</strong> (also labeled "Use long connection to receive events").</p>
+<div class="admonition tip">
+<p class="admonition-title">Why WebSocket Mode?</p>
+<p>WebSocket mode is ideal for Datus Gateway because it does not require a publicly accessible server. The bot initiates an outbound WebSocket connection to Feishu's servers, and events are pushed through this connection.</p>
+</div>
+</li>
+<li>
+<p>Under <strong>Event List</strong>, click <strong>Add Event</strong> and search for:</p>
+<table>
+<thead>
+<tr>
+<th>Event Name</th>
+<th>Event Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Receive messages</td>
+<td><code>im.message.receive_v1</code></td>
+<td>Triggered when the bot receives a message</td>
+</tr>
+<tr>
+<td>Message reaction created</td>
+<td><code>im.message.reaction.created_v1</code></td>
+<td>Triggered when a user adds a reaction to a message</td>
+</tr>
+<tr>
+<td>Message reaction deleted</td>
+<td><code>im.message.reaction.deleted_v1</code></td>
+<td>Triggered when a user removes a reaction from a message</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<h2 id="step-6-configure-permissions">Step 6: Configure Permissions<a class="headerlink" href="#step-6-configure-permissions" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In the left sidebar, go to <strong>Permissions &amp; Scopes</strong>.</li>
+<li>Search for and add the following permissions:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Scope Key</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Read messages sent to the bot</td>
+<td><code>im:message</code></td>
+<td>Receive direct messages</td>
+</tr>
+<tr>
+<td>Read group messages</td>
+<td><code>im:message.group_msg:readonly</code></td>
+<td>Receive all group messages (required for thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>)</td>
+</tr>
+<tr>
+<td>Send messages as the bot</td>
+<td><code>im:message:send_as_bot</code></td>
+<td>Reply to users</td>
+</tr>
+<tr>
+<td>Read card info</td>
+<td><code>cardkit:card:read</code></td>
+<td>Convert message ID to card ID for streaming cards</td>
+</tr>
+<tr>
+<td>Write card content</td>
+<td><code>cardkit:card:write</code></td>
+<td>Update streaming card content and close streaming mode</td>
+</tr>
+<tr>
+<td>Get chat info</td>
+<td><code>im:chat:readonly</code></td>
+<td>Read group chat metadata (optional)</td>
+</tr>
+<tr>
+<td>Read user info</td>
+<td><code>contact:user.base:readonly</code></td>
+<td>Resolve sender names (optional)</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Group message permission</p>
+<p><code>im:message.group_msg:readonly</code> allows the bot to receive <strong>all</strong> group messages, including thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a>. The bot automatically filters out irrelevant messages — only <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages and replies within an existing bot thread are processed. If you prefer a more restrictive scope, you can use <code>im:message.group_at_msg:readonly</code> instead, but thread replies without <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> will not be received.</p>
+</div>
+<ol>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Batch import</p>
+<p>In the <strong>Permissions &amp; Scopes</strong> page, click <strong>Batch Enable</strong> and paste the following JSON to add all permissions at once:</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="p">{</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="nt">&quot;scopes&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="nt">&quot;tenant&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:read&quot;</span><span class="p">,</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">      </span><span class="s2">&quot;cardkit:card:write&quot;</span><span class="p">,</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">      </span><span class="s2">&quot;contact:user.base:readonly&quot;</span><span class="p">,</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">      </span><span class="s2">&quot;im:chat:readonly&quot;</span><span class="p">,</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="w">      </span><span class="s2">&quot;im:message&quot;</span><span class="p">,</span>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="w">      </span><span class="s2">&quot;im:message.group_msg:readonly&quot;</span><span class="p">,</span>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">      </span><span class="s2">&quot;im:message:send_as_bot&quot;</span><span class="p">,</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a><span class="w">      </span><span class="s2">&quot;im:resource&quot;</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a><span class="w">    </span><span class="p">]</span>
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Required vs Optional</p>
+<p><code>im:message</code>, <code>im:message.group_msg:readonly</code>, <code>im:message:send_as_bot</code>, <code>cardkit:card:read</code>, and <code>cardkit:card:write</code> are required for full functionality (including group <a class="magiclink magiclink-github magiclink-mention" href="https://github.com/bot" title="GitHub User: bot">@bot</a> messages, thread replies, and streaming card responses). The other permissions are optional and depend on your use case. Without CardKit permissions, the bot falls back to sending separate messages for each response chunk.</p>
+</div>
+<h2 id="step-7-publish-the-app">Step 7: Publish the App<a class="headerlink" href="#step-7-publish-the-app" title="Permanent link">&para;</a></h2>
+<ol>
+<li>In the left sidebar, go to <strong>Version Management &amp; Release</strong>.</li>
+<li>Click <strong>Create Version</strong>.</li>
+<li>Fill in the version number and update notes.</li>
+<li>
+<p>Click <strong>Submit for Review</strong>.</p>
+</li>
+<li>
+<p><strong>Test tenants</strong>: You can self-approve in test organizations. Go to the <strong>Testing</strong> section to add test members first.</p>
+</li>
+<li><strong>Production tenants</strong>: An admin of the organization must approve the app.</li>
+</ol>
+<div class="admonition info">
+<p class="admonition-title">App availability</p>
+<p>After approval, the app becomes available to users in the organization. Users can find and add the bot from the Feishu app directory or by searching its name.</p>
+</div>
+<h2 id="step-8-configure-datus-agent">Step 8: Configure Datus Agent<a class="headerlink" href="#step-8-configure-datus-agent" title="Permanent link">&para;</a></h2>
+<p>Add the Feishu channel to your <code>agent.yml</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nt">channels</span><span class="p">:</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="nt">feishu-main</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">    </span><span class="nt">adapter</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">feishu</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">    </span><span class="nt">extra</span><span class="p">:</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">      </span><span class="nt">app_id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_ID}</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">      </span><span class="nt">app_secret</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${FEISHU_APP_SECRET}</span>
+</span></code></pre></div>
+<p>Set the environment variables:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_ID</span><span class="o">=</span><span class="s2">&quot;cli_xxxxxxxxxxxx&quot;</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">FEISHU_APP_SECRET</span><span class="o">=</span><span class="s2">&quot;xxxxxxxxxxxxxxxxxxxxxxxx&quot;</span>
+</span></code></pre></div>
+<h2 id="configuration-reference">Configuration Reference<a class="headerlink" href="#configuration-reference" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>app_id</code></td>
+<td>Yes</td>
+<td>App ID from Feishu Open Platform</td>
+</tr>
+<tr>
+<td><code>app_secret</code></td>
+<td>Yes</td>
+<td>App Secret from Feishu Open Platform</td>
+</tr>
+</tbody>
+</table>
+<h2 id="verify-the-connection">Verify the Connection<a class="headerlink" href="#verify-the-connection" title="Permanent link">&para;</a></h2>
+<p>Start the gateway and check the logs:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>python<span class="w"> </span>-m<span class="w"> </span>datus.gateway.main<span class="w"> </span>--config<span class="w"> </span>conf/agent.yml<span class="w"> </span>--debug
+</span></code></pre></div>
+<p>You should see:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>Feishu adapter &#39;feishu-main&#39; connecting...
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>Feishu adapter &#39;feishu-main&#39; started.
+</span></code></pre></div>
+<p>Send a message to the bot in a Feishu group or direct message. The bot should respond with the agent's analysis.</p>
+<h2 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h2>
+<h3 id="app_ticket-is-empty-or-authentication-failure">"app_ticket is empty" or authentication failure<a class="headerlink" href="#app_ticket-is-empty-or-authentication-failure" title="Permanent link">&para;</a></h3>
 <ul>
-<li><code>services.bi_tools</code> is now the only runtime source for BI credentials.</li>
-<li>Top-level <code>dashboard:</code> is no longer read at runtime.</li>
+<li>Verify that <code>app_id</code> and <code>app_secret</code> are correct and match the app in the Feishu Open Platform.</li>
+<li>Ensure the app has been published and approved.</li>
+</ul>
+<h3 id="bot-connects-but-doesnt-receive-messages">Bot connects but doesn't receive messages<a class="headerlink" href="#bot-connects-but-doesnt-receive-messages" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Check that the <strong>WebSocket Mode</strong> is selected (not HTTP callback mode) under Event Subscriptions.</li>
+<li>Verify the <code>im.message.receive_v1</code> event is added.</li>
+<li>Ensure the bot capability is enabled under <strong>Features → Bot</strong>.</li>
+</ul>
+<h3 id="bot-doesnt-reply">Bot doesn't reply<a class="headerlink" href="#bot-doesnt-reply" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Check that the <code>im:message:send_as_bot</code> permission has been added and approved.</li>
+<li>Verify the app version with this permission has been published.</li>
+</ul>
+<h3 id="permission-denied-errors-in-logs">"permission denied" errors in logs<a class="headerlink" href="#permission-denied-errors-in-logs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Go to <strong>Permissions &amp; Scopes</strong> and ensure all required permissions are added.</li>
+<li>After adding permissions, you must <strong>create a new version</strong> and get it approved for the permissions to take effect.</li>
+</ul>
+<h3 id="websocket-connection-keeps-dropping">WebSocket connection keeps dropping<a class="headerlink" href="#websocket-connection-keeps-dropping" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The <code>lark-oapi</code> SDK handles reconnection automatically. Check network connectivity.</li>
+<li>Enable debug logging (<code>--debug</code>) to see detailed connection status.</li>
 </ul>
 
 
@@ -3646,7 +4177,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../semantic_layer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Semantic Layer">
+          <a href="../slack/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Slack">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -3656,20 +4187,20 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                Semantic Layer
+                Slack
               </div>
             </div>
           </a>
         
         
           
-          <a href="../schedulers/" class="md-footer__link md-footer__link--next" aria-label="Next: Schedulers">
+          <a href="../../knowledge_base/introduction/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Schedulers
+                Introduction
               </div>
             </div>
             <div class="md-footer__button md-icon">
