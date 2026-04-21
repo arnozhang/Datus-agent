@@ -194,6 +194,20 @@ async def test_update_databases_initializes_services_when_missing(patched_cm, pa
 
 
 @pytest.mark.asyncio
+async def test_update_databases_coerces_null_services_block(patched_cm, patched_cache):
+    """YAML with `services: null` must not crash on dict item assignment."""
+    patched_cm.data = {"services": None}
+
+    await update_databases_endpoint(
+        UpdateDatabasesRequest(databases={"db_a": {"type": "duckdb"}}),
+        svc=MagicMock(),
+        ctx=_ctx(),
+    )
+
+    assert patched_cm.data["services"]["databases"] == {"db_a": {"type": "duckdb"}}
+
+
+@pytest.mark.asyncio
 async def test_update_models_replaces_models_and_target(patched_cm, patched_cache):
     patched_cm.data = {"models": {"old": {"type": "openai"}}, "target": "old"}
     body = UpdateModelsRequest(
@@ -261,6 +275,22 @@ async def test_update_models_target_validated_against_new_models(patched_cm, pat
             svc=MagicMock(),
             ctx=_ctx(),
         )
+
+
+@pytest.mark.asyncio
+async def test_update_models_rejects_replacing_models_that_orphans_existing_target(patched_cm, patched_cache):
+    """Replacing models without touching target must fail when the existing target disappears."""
+    patched_cm.data = {"models": {"m1": {"type": "openai"}}, "target": "m1"}
+
+    with pytest.raises(DatusException):
+        await update_models_endpoint(
+            UpdateModelsRequest(models={"m2": {"type": "openai"}}),
+            svc=MagicMock(),
+            ctx=_ctx(),
+        )
+    assert patched_cm.save_count == 0
+    assert patched_cm.data["models"] == {"m1": {"type": "openai"}}
+    assert patched_cm.data["target"] == "m1"
 
 
 @pytest.mark.asyncio

@@ -269,8 +269,9 @@ async def update_databases_endpoint(
     _validate_keys(body.databases, kind="database")
 
     cm = configuration_manager()
-    services = cm.data.setdefault("services", {})
+    services = cm.data.get("services") or {}
     services["databases"] = dict(body.databases)
+    cm.data["services"] = services
     cm.save()
 
     await _evict_current_project(ctx.project_id or "default")
@@ -301,13 +302,13 @@ async def update_models_endpoint(
 
     cm = configuration_manager()
 
-    if body.target is not None:
-        effective_models = body.models if body.models is not None else cm.data.get("models") or {}
-        if body.target not in effective_models:
-            raise DatusException(
-                ErrorCode.COMMON_FIELD_INVALID,
-                message=f"target '{body.target}' does not exist in models.",
-            )
+    effective_models = body.models if body.models is not None else cm.data.get("models") or {}
+    effective_target = body.target if body.target is not None else cm.data.get("target")
+    if effective_target is not None and effective_target not in effective_models:
+        raise DatusException(
+            ErrorCode.COMMON_FIELD_INVALID,
+            message=f"target '{effective_target}' does not exist in models.",
+        )
 
     if body.models is not None:
         cm.data["models"] = dict(body.models)
