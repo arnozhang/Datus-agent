@@ -1135,8 +1135,6 @@
       
         
       
-        
-      
     
     
     
@@ -1446,35 +1444,7 @@
   <span class="md-ellipsis">
     
   
-    ETL Job
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration
+    Data Pipeline (ETL + Migration)
   
 
     
@@ -3655,6 +3625,7 @@
 <li><a href="../sql_execution/">Run SQL directly</a> like a traditional SQL client</li>
 <li>Use <a href="../chat_command/#session-commands">session commands</a> such as <code>/compact</code> and <code>/clear</code> to manage or reset sessions</li>
 <li><a href="../sql_execution/#explore-metadata">Explore metadata</a> with <code>/tables</code> and <code>/databases</code></li>
+<li>Use <a href="../model_command/"><code>/model</code></a> to switch LLM providers and models at runtime</li>
 <li>Use <a href="../mcp_extensions/"><code>/mcp</code></a> to add, remove, or test MCP servers to extend functionality</li>
 <li>Use <a href="../plan_mode/">plan mode</a> to break down complex tasks into reviewable steps before execution</li>
 </ul>
@@ -3681,7 +3652,7 @@
 <p>A CLI provides tighter control over context (not just code), making it easier to keep diffs small and reproducible while collaborating with an AI agent. This is especially useful when you want reliable changes instead of opaque, large edits typical of GUI tools.</p>
 <h2 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <p>You first need to install and initialize Datus-CLI through the installation process, and then you can start Datus-CLI by running:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datus-cli<span class="w"> </span>--database<span class="w"> </span>duckdb-demo
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>datus-cli<span class="w"> </span>--datasource<span class="w"> </span>duckdb-demo
 </span></code></pre></div>
 
 

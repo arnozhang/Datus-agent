@@ -1020,8 +1020,6 @@
       
         
       
-        
-      
     
     
     
@@ -1331,35 +1329,7 @@
   <span class="md-ellipsis">
     
   
-    ETL Job
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration
+    Data Pipeline (ETL + Migration)
   
 
     
@@ -3607,6 +3577,7 @@
 <ul>
 <li><code>config_path</code> is optional.</li>
 <li>Datus prefers the current <code>services.datasources</code> entry and the project semantic model directory to build runtime config automatically.</li>
+<li>MetricFlow validation reads YAML files from the configured project semantic model directory directly, including generated files under gitignored project paths.</li>
 <li><code>config_path</code> is only needed when you want MetricFlow to read a specific <code>agent.yml</code> file directly.</li>
 </ul>
 

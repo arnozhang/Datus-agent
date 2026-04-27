@@ -8,7 +8,7 @@
       
       
       
-        <link rel="canonical" href="https://docs.datus.ai/dev/design/de-skills-design-summary/">
+        <link rel="canonical" href="https://docs.datus.ai/dev/cli/model_command/">
       
       
       
@@ -16,7 +16,7 @@
         
           <link rel="alternate" href="./" hreflang="en">
         
-          <link rel="alternate" href="../../zh/design/de-skills-design-summary/" hreflang="zh">
+          <link rel="alternate" href="../../zh/cli/model_command/" hreflang="zh">
         
       
       
@@ -25,7 +25,7 @@
     
     
       
-        <title>DE 分支设计总结：Subagent、Skill 与 Tool - Datus Docs</title>
+        <title>Model Command /model - Datus Docs</title>
       
     
     
@@ -82,7 +82,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#de-subagentskill-tool" class="md-skip">
+        <a href="#model-command-model" class="md-skip">
           Skip to content
         </a>
       
@@ -119,7 +119,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DE 分支设计总结：Subagent、Skill 与 Tool
+              Model Command /model
             
           </span>
         </div>
@@ -182,7 +182,7 @@
           </li>
         
           <li class="md-select__item">
-            <a href="../../zh/design/de-skills-design-summary/" hreflang="zh" class="md-select__link">
+            <a href="../../zh/cli/model_command/" hreflang="zh" class="md-select__link">
               中文
             </a>
           </li>
@@ -727,7 +727,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/introduction/" class="md-nav__link">
+      <a href="../introduction/" class="md-nav__link">
         
   
   
@@ -755,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/chat_command/" class="md-nav__link">
+      <a href="../chat_command/" class="md-nav__link">
         
   
   
@@ -783,7 +783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/context_command/" class="md-nav__link">
+      <a href="../context_command/" class="md-nav__link">
         
   
   
@@ -811,7 +811,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/execution_command/" class="md-nav__link">
+      <a href="../execution_command/" class="md-nav__link">
         
   
   
@@ -839,7 +839,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/mcp_extensions/" class="md-nav__link">
+      <a href="../mcp_extensions/" class="md-nav__link">
         
   
   
@@ -867,7 +867,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/sql_execution/" class="md-nav__link">
+      <a href="../sql_execution/" class="md-nav__link">
         
   
   
@@ -895,7 +895,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/skill_command/" class="md-nav__link">
+      <a href="../skill_command/" class="md-nav__link">
         
   
   
@@ -923,7 +923,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/reference/" class="md-nav__link">
+      <a href="../reference/" class="md-nav__link">
         
   
   
@@ -951,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../cli/plan_mode/" class="md-nav__link">
+      <a href="../plan_mode/" class="md-nav__link">
         
   
   
@@ -988,8 +988,6 @@
   
     
     
-      
-        
       
         
       
@@ -1320,35 +1318,7 @@
   <span class="md-ellipsis">
     
   
-    ETL Job
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../subagent/migration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Migration
+    Data Pipeline (ETL + Migration)
   
 
     
@@ -3424,10 +3394,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#overview" class="md-nav__link">
     <span class="md-ellipsis">
       
-        概览
+        Overview
       
     </span>
   </a>
@@ -3435,22 +3405,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#1-subagent" class="md-nav__link">
+  <a href="#basic-usage" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1. 内置 Subagent
+        Basic Usage
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="1. 内置 Subagent">
+    <nav class="md-nav" aria-label="Basic Usage">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#11-gen_table" class="md-nav__link">
+  <a href="#interactive-picker" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.1 gen_table — 建表代理
+        Interactive Picker
       
     </span>
   </a>
@@ -3458,21 +3428,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#12-gen_job-etl" class="md-nav__link">
+  <a href="#direct-shortcuts" class="md-nav__link">
     <span class="md-ellipsis">
       
-        1.2 gen_job — 单库 ETL 代理
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#13-migration" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        1.3 migration — 跨库迁移代理
+        Direct Shortcuts
       
     </span>
   </a>
@@ -3485,22 +3444,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-skill" class="md-nav__link">
+  <a href="#provider-authentication" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2. Skill 设计
+        Provider Authentication
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="2. Skill 设计">
+    <nav class="md-nav" aria-label="Provider Authentication">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#21-gen-table" class="md-nav__link">
+  <a href="#api-key-providers" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.1 gen-table（建表）
+        API Key Providers
       
     </span>
   </a>
@@ -3508,10 +3467,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#22-table-validation" class="md-nav__link">
+  <a href="#claude-subscription" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.2 table-validation（表验证）
+        Claude Subscription
       
     </span>
   </a>
@@ -3519,21 +3478,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#23-data-migration" class="md-nav__link">
+  <a href="#codex-chatgpt-pluspro-oauth" class="md-nav__link">
     <span class="md-ellipsis">
       
-        2.3 data-migration（跨库迁移）
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#24-bi-validationbi" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        2.4 bi-validation（BI 发布验证）
+        Codex (ChatGPT Plus/Pro) OAuth
       
     </span>
   </a>
@@ -3546,34 +3494,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-tool" class="md-nav__link">
+  <a href="#custom-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3. Tool 层设计
+        Custom Models
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="3. Tool 层设计">
+    <nav class="md-nav" aria-label="Custom Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#31-dbfunctool" class="md-nav__link">
+  <a href="#adding-a-custom-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.1 DBFuncTool 新增方法
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.1 DBFuncTool 新增方法">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#execute_ddlsql-database" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        execute_ddl(sql, database="")
+        Adding a Custom Model
       
     </span>
   </a>
@@ -3581,32 +3517,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#execute_writesql-database-min_rowsnone-max_rowsnone" class="md-nav__link">
+  <a href="#deleting-a-custom-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        execute_write(sql, database="", min_rows=None, max_rows=None)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#transfer_query_resultsource_sql-source_database-target_table-target_database-mode-batch_size" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        transfer_query_result(source_sql, source_database, target_table, target_database, mode, batch_size)
-      
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#list_databases" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        list_databases（增强）
+        Deleting a Custom Model
       
     </span>
   </a>
@@ -3617,35 +3531,24 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#32" class="md-nav__link">
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
     <span class="md-ellipsis">
       
-        3.2 多连接器路由
+        Configuration Files
       
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#33-migration-helper" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        3.3 Migration Helper 层
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="3.3 Migration Helper 层">
+    <nav class="md-nav" aria-label="Configuration Files">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#type_mappingpy" class="md-nav__link">
+  <a href="#project-override-datusconfigyml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        type_mapping.py — 跨方言类型映射
+        Project Override (.datus/config.yml)
       
     </span>
   </a>
@@ -3653,10 +3556,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#target_profilespy-ddl" class="md-nav__link">
+  <a href="#provider-credentials-agentyml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        target_profiles.py — 目标库 DDL 生成
+        Provider Credentials (agent.yml)
       
     </span>
   </a>
@@ -3664,10 +3567,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#reconciliationpy" class="md-nav__link">
+  <a href="#provider-catalog-confprovidersyml" class="md-nav__link">
     <span class="md-ellipsis">
       
-        reconciliation.py — 迁移后对数校验
+        Provider Catalog (conf/providers.yml)
       
     </span>
   </a>
@@ -3678,61 +3581,12 @@
     </nav>
   
 </li>
-        
-      </ul>
-    </nav>
-  
-</li>
       
         <li class="md-nav__item">
-  <a href="#4" class="md-nav__link">
+  <a href="#how-it-works" class="md-nav__link">
     <span class="md-ellipsis">
       
-        4. 注册架构
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#5-prompt" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        5. Prompt 模板
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#6" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        6. 测试覆盖
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#7" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        7. 架构图
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#8" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        8. 设计决策记录
+        How It Works
       
     </span>
   </a>
@@ -3756,7 +3610,7 @@
 
 
   
-    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/design/de-skills-design-summary.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+    <a href="https://github.com/Datus-ai/Datus-agent/edit/main/docs/cli/model_command.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -3764,494 +3618,159 @@
   
 
 
-<h1 id="de-subagentskill-tool">DE 分支设计总结：Subagent、Skill 与 Tool<a class="headerlink" href="#de-subagentskill-tool" title="Permanent link">&para;</a></h1>
-<h2 id="_1">概览<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>本分支（<code>de-skills</code>）新增了面向数据工程（Data Engineering）场景的内置 Subagent、Skill 和 Tool，覆盖三大核心场景：</p>
+<h1 id="model-command-model">Model Command <code>/model</code><a class="headerlink" href="#model-command-model" title="Permanent link">&para;</a></h1>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The <code>/model</code> slash command lets you switch the active LLM provider and model at runtime without editing configuration files. It provides an interactive TUI picker and direct shortcut syntax for quick switching.</p>
+<p>All selections are persisted to the project-level <code>.datus/config.yml</code> so they survive session restarts and are scoped to the current working directory.</p>
+<hr />
+<h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
+<h3 id="interactive-picker">Interactive Picker<a class="headerlink" href="#interactive-picker" title="Permanent link">&para;</a></h3>
+<p>Type <code>/model</code> (or <code>/models</code>) with no arguments to open the full TUI picker:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/model
+</span></code></pre></div>
+<p>The picker has three tabs, navigable with <strong>Tab</strong> / <strong>Shift+Tab</strong>:</p>
 <table>
 <thead>
 <tr>
-<th>场景</th>
-<th>Subagent</th>
-<th>Skill</th>
-<th>核心 Tool</th>
+<th>Tab</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>建表</td>
-<td><code>gen_table</code></td>
-<td><code>gen-table</code></td>
-<td><code>execute_ddl</code></td>
+<td><strong>Providers</strong></td>
+<td>General-purpose LLM providers (OpenAI, DeepSeek, Claude, etc.)</td>
 </tr>
 <tr>
-<td>单库 ETL</td>
-<td><code>gen_job</code></td>
-<td><code>gen-table</code> + <code>table-validation</code></td>
-<td><code>execute_ddl</code> + <code>execute_write</code></td>
+<td><strong>Plans</strong></td>
+<td>Coding-oriented plan providers (Alibaba Coding, GLM Coding, etc.)</td>
 </tr>
 <tr>
-<td>跨库迁移</td>
-<td><code>migration</code></td>
-<td><code>data-migration</code> + <code>table-validation</code></td>
-<td><code>execute_ddl</code> + <code>execute_write</code> + <code>transfer_query_result</code></td>
+<td><strong>Custom</strong></td>
+<td>Self-hosted or private-deployment models from <code>agent.models</code></td>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="1-subagent">1. 内置 Subagent<a class="headerlink" href="#1-subagent" title="Permanent link">&para;</a></h2>
-<h3 id="11-gen_table">1.1 gen_table — 建表代理<a class="headerlink" href="#11-gen_table" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>职责</strong>：从 SQL（CTAS）或自然语言描述创建数据库表</li>
-<li><strong>Node 类</strong>：<code>GenTableAgenticNode</code>（<code>datus/agent/node/gen_table_agentic_node.py</code>）</li>
-<li><strong>Node Type</strong>：<code>NodeType.TYPE_GEN_TABLE</code></li>
-<li><strong>可用 Tool</strong>：</li>
-<li>标准只读 DB 工具（<code>list_tables</code>、<code>describe_table</code>、<code>read_query</code> 等）</li>
-<li><code>execute_ddl</code> — 执行 DDL 语句</li>
-<li><code>ask_user</code> — 交互式确认（DDL 执行前必须确认）</li>
-<li>文件系统工具（读写 SQL 文件）</li>
-<li><strong>Skill 绑定</strong>：<code>gen-table</code></li>
-<li><strong>典型流程</strong>：</li>
-<li>解析用户输入（SQL 或自然语言）</li>
-<li>探查源表 schema</li>
-<li>生成 DDL 并通过 <code>ask_user</code> 确认</li>
-<li>执行 DDL 并验证结果</li>
-</ul>
-<h3 id="12-gen_job-etl">1.2 gen_job — 单库 ETL 代理<a class="headerlink" href="#12-gen_job-etl" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>职责</strong>：在同一数据库内执行 ETL 任务（建表 + 写数据 + 验证）</li>
-<li><strong>Node 类</strong>：<code>GenJobAgenticNode</code>（<code>datus/agent/node/gen_job_agentic_node.py</code>）</li>
-<li><strong>Node Type</strong>：<code>NodeType.TYPE_GEN_JOB</code></li>
-<li><strong>max_turns</strong>：30</li>
-<li><strong>可用 Tool</strong>：</li>
-<li>标准只读 DB 工具</li>
-<li><code>execute_ddl</code> — 执行 DDL（CREATE TABLE 等）</li>
-<li><code>execute_write</code> — 执行 DML（INSERT / UPDATE / DELETE）</li>
-<li>文件系统工具</li>
-<li><code>ask_user</code>（interactive 模式下）</li>
-<li><strong>Skill 绑定</strong>：<code>gen-table</code> + <code>table-validation</code></li>
-<li><strong>与 migration 的区别</strong>：<strong>不包含</strong> <code>transfer_query_result</code>，仅限单库操作</li>
-<li><strong>典型流程</strong>：</li>
-<li>探查源表和目标表 schema</li>
-<li>生成 DDL 创建目标表</li>
-<li>通过 INSERT ... SELECT 写入数据</li>
-<li>使用 table-validation skill 验证数据质量</li>
-</ul>
-<h3 id="13-migration">1.3 migration — 跨库迁移代理<a class="headerlink" href="#13-migration" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>职责</strong>：跨数据库引擎迁移数据（如 DuckDB → Greenplum / StarRocks）</li>
-<li><strong>Node 类</strong>：<code>MigrationAgenticNode</code>（<code>datus/agent/node/migration_agentic_node.py</code>）</li>
-<li><strong>Node Type</strong>：<code>NodeType.TYPE_MIGRATION</code></li>
-<li><strong>max_turns</strong>：40（迁移流程较长，轮次上限更高）</li>
-<li><strong>可用 Tool</strong>：</li>
-<li>标准只读 DB 工具</li>
-<li><code>execute_ddl</code> — 在目标库执行 DDL</li>
-<li><code>execute_write</code> — 在目标库执行 DML</li>
-<li><code>transfer_query_result</code> — <strong>核心跨库传输工具</strong></li>
-<li>文件系统工具</li>
-<li><code>ask_user</code>（interactive 模式下）</li>
-<li><strong>Skill 绑定</strong>：<code>data-migration</code> + <code>table-validation</code></li>
-<li><strong>安全机制</strong>：</li>
-<li>目标数据库不可用时**立即报错**，禁止静默回退到其他库</li>
-<li><code>list_databases</code> 返回每个库的 <code>available</code> 状态，迁移前必须确认</li>
-</ul>
-<hr />
-<h2 id="2-skill">2. Skill 设计<a class="headerlink" href="#2-skill" title="Permanent link">&para;</a></h2>
-<h3 id="21-gen-table">2.1 gen-table（建表）<a class="headerlink" href="#21-gen-table" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>触发场景</strong>：用户提供 SQL 或自然语言描述建表需求</li>
-<li><strong>输入模式</strong>：</li>
-<li><strong>SQL 模式</strong>：用户提供 SELECT SQL → CTAS 建表</li>
-<li><strong>描述模式</strong>：用户用自然语言描述表结构 → CREATE TABLE DDL</li>
-<li><strong>关键规则</strong>：</li>
-<li>DDL 执行前**必须**通过 <code>ask_user</code> 确认</li>
-<li>用户选择 Cancel 时立即停止</li>
-<li>不修改源表，只创建新表</li>
-</ul>
-<h3 id="22-table-validation">2.2 table-validation（表验证）<a class="headerlink" href="#22-table-validation" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>触发场景</strong>：表创建或写入后，验证 schema 和数据质量</li>
-<li><strong>验证项目</strong>：</li>
-<li>对象存在性检查</li>
-<li>缺失 / 多余列检查</li>
-<li>类型和 nullable 不匹配</li>
-<li>行数门槛</li>
-<li>Null 比率</li>
-<li>数值范围</li>
-<li>接受值集合</li>
-<li>正则 / 格式规则</li>
-<li>唯一性 / 重复键</li>
-<li><strong>输出</strong>：紧凑的 pass/fail 报告</li>
-</ul>
-<h3 id="23-data-migration">2.3 data-migration（跨库迁移）<a class="headerlink" href="#23-data-migration" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>触发场景</strong>：需要将表从一个数据库迁移到另一个数据库</li>
-<li><strong>6 阶段工作流</strong>：</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th>阶段</th>
-<th>动作</th>
-<th>使用的 Tool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Phase 1: 源库探查</td>
-<td>获取源表 schema、行数、样本数据</td>
-<td><code>describe_table(database=source)</code>, <code>read_query(database=source)</code></td>
-</tr>
-<tr>
-<td>Phase 2: 目标库探查</td>
-<td>检查目标库是否已有同名表</td>
-<td><code>list_tables(database=target)</code>, <code>describe_table(database=target)</code></td>
-</tr>
-<tr>
-<td>Phase 3: 生成目标 DDL</td>
-<td>跨方言类型映射 + DDL 生成</td>
-<td><code>execute_ddl(sql, database=target)</code></td>
-</tr>
-<tr>
-<td>Phase 4: 数据传输</td>
-<td>批量跨库传输</td>
-<td><code>transfer_query_result(...)</code></td>
-</tr>
-<tr>
-<td>Phase 5: 对数校验</td>
-<td>7 项 reconciliation 检查</td>
-<td><code>read_query(database=source/target)</code></td>
-</tr>
-<tr>
-<td>Phase 6: 报告</td>
-<td>汇总迁移结果</td>
-<td>—</td>
-</tr>
-</tbody>
-</table>
-<ul>
-<li><strong>关键安全规则</strong>：</li>
-<li>每个 tool 调用都必须显式指定 <code>database</code> 参数</li>
-<li>源库只读，所有写操作仅对目标库</li>
-<li>对数校验（reconciliation）是强制步骤，不可跳过</li>
-<li>目标库不可用时**禁止**回退到其他库</li>
-</ul>
-<h3 id="24-bi-validationbi">2.4 bi-validation（BI 发布验证）<a class="headerlink" href="#24-bi-validationbi" title="Permanent link">&para;</a></h3>
-<ul>
-<li><strong>触发场景</strong>：BI 变更发布后验证</li>
-<li><strong>验证内容</strong>：数据集/图表/仪表盘创建状态、刷新成功、关键指标一致性</li>
-</ul>
-<hr />
-<h2 id="3-tool">3. Tool 层设计<a class="headerlink" href="#3-tool" title="Permanent link">&para;</a></h2>
-<h3 id="31-dbfunctool">3.1 DBFuncTool 新增方法<a class="headerlink" href="#31-dbfunctool" title="Permanent link">&para;</a></h3>
-<p>所有新增方法位于 <code>datus/tools/func_tool/database.py</code>：</p>
-<h4 id="execute_ddlsql-database">execute_ddl(sql, database="")<a class="headerlink" href="#execute_ddlsql-database" title="Permanent link">&para;</a></h4>
-<ul>
-<li>执行 DDL 语句（CREATE TABLE、ALTER TABLE 等）</li>
-<li><code>database</code> 参数支持指定目标数据库（跨库场景）</li>
-<li>执行后显式 commit，避免 SQLAlchemy 事务锁</li>
-</ul>
-<h4 id="execute_writesql-database-min_rowsnone-max_rowsnone">execute_write(sql, database="", min_rows=None, max_rows=None)<a class="headerlink" href="#execute_writesql-database-min_rowsnone-max_rowsnone" title="Permanent link">&para;</a></h4>
-<ul>
-<li>执行 DML 语句（INSERT / UPDATE / DELETE）</li>
-<li>支持行数门槛校验（<code>min_rows</code> / <code>max_rows</code>）</li>
-</ul>
-<h4 id="transfer_query_resultsource_sql-source_database-target_table-target_database-mode-batch_size">transfer_query_result(source_sql, source_database, target_table, target_database, mode, batch_size)<a class="headerlink" href="#transfer_query_resultsource_sql-source_database-target_table-target_database-mode-batch_size" title="Permanent link">&para;</a></h4>
-<ul>
-<li><strong>核心跨库传输工具</strong></li>
-<li>工作原理：</li>
-<li>在 <code>source_database</code> 上执行 <code>source_sql</code>，获取 Pandas DataFrame</li>
-<li>对 DataFrame 进行清洗（NaT/NaN → None）</li>
-<li>在 <code>target_database</code> 上批量 INSERT（dialect-aware 引号处理）</li>
-<li><code>mode</code>：<code>replace</code>（先 TRUNCATE 再插入）或 <code>append</code>（追加插入）</li>
-<li><strong>行数上限</strong>：<code>_TRANSFER_MAX_ROWS</code>（防止超大数据集卡死）</li>
-<li><strong>方言感知列名引号</strong>：</li>
-<li>MySQL 系列（StarRocks、Hive 等）：使用反引号 <code>`</code></li>
-<li>PostgreSQL 系列（Greenplum 等）：使用双引号 <code>"</code></li>
-<li><strong>安全机制</strong>：源库或目标库不可用时返回明确错误，禁止回退</li>
-</ul>
-<h4 id="list_databases">list_databases（增强）<a class="headerlink" href="#list_databases" title="Permanent link">&para;</a></h4>
-<ul>
-<li>多连接器模式下返回每个数据库的 <code>{name, type, available, error}</code> 信息</li>
-<li>供 LLM 在迁移前确认数据库可用性</li>
-</ul>
-<h3 id="32">3.2 多连接器路由<a class="headerlink" href="#32" title="Permanent link">&para;</a></h3>
-<ul>
-<li><code>_get_connector(database)</code> 使用 <code>get_conn(db_name, db_name)</code> 路由到正确的数据库连接器</li>
-<li><code>_needs_multi_connector()</code> 自动检测子代理是否配置了 <code>transfer_query_result</code>，决定是否启用多连接器模式</li>
-<li>每个数据库在配置中是独立的 namespace</li>
-</ul>
-<h3 id="33-migration-helper">3.3 Migration Helper 层<a class="headerlink" href="#33-migration-helper" title="Permanent link">&para;</a></h3>
-<p>位于 <code>datus/tools/migration/</code>，提供纯函数工具，<strong>不依赖任何具体的数据库 adapter</strong>：</p>
-<h4 id="type_mappingpy">type_mapping.py — 跨方言类型映射<a class="headerlink" href="#type_mappingpy" title="Permanent link">&para;</a></h4>
-<ul>
-<li><code>map_columns_between_dialects(columns, source_dialect, target_dialect)</code> → 映射后的列定义列表</li>
-<li>支持 DuckDB → Greenplum、DuckDB → StarRocks</li>
-<li>参数保留：源 <code>DECIMAL(10,2)</code> 的参数优先于目标默认值</li>
-<li>不支持的类型（LIST、STRUCT、MAP 等）抛 <code>UnsupportedTypeError</code></li>
-</ul>
-<h4 id="target_profilespy-ddl">target_profiles.py — 目标库 DDL 生成<a class="headerlink" href="#target_profilespy-ddl" title="Permanent link">&para;</a></h4>
-<ul>
-<li><code>GreenplumProfile</code>：schema 限定表名，无特殊 DDL 后缀</li>
-<li><code>StarRocksProfile</code>：</li>
-<li>自动选择 DUPLICATE KEY 列（优先级：id 后缀 &gt; 整数类型 &gt; 非空列）</li>
-<li>生成 <code>DISTRIBUTED BY HASH(...)</code> 子句</li>
-<li><code>build_target_ddl(columns, target_table, profile)</code> — 统一入口</li>
-</ul>
-<h4 id="reconciliationpy">reconciliation.py — 迁移后对数校验<a class="headerlink" href="#reconciliationpy" title="Permanent link">&para;</a></h4>
-<p>生成 7 项 SQL 对（source 和 target 各一条）：</p>
-<table>
-<thead>
-<tr>
-<th>检查项</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>row_count</code></td>
-<td>总行数比较</td>
-</tr>
-<tr>
-<td><code>null_ratio</code></td>
-<td>每列 NULL 数比较</td>
-</tr>
-<tr>
-<td><code>min_max</code></td>
-<td>数值/日期列范围比较</td>
-</tr>
-<tr>
-<td><code>distinct_count</code></td>
-<td>关键列基数比较</td>
-</tr>
-<tr>
-<td><code>duplicate_key</code></td>
-<td>目标表重复键检查</td>
-</tr>
-<tr>
-<td><code>sample_diff</code></td>
-<td>基于主键的样本行比对（top 10）</td>
-</tr>
-<tr>
-<td><code>numeric_aggregate</code></td>
-<td>数值列 SUM/AVG 比较</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="4">4. 注册架构<a class="headerlink" href="#4" title="Permanent link">&para;</a></h2>
-<p>每个内置 Subagent 需要在 <strong>8 个位置</strong> 注册：</p>
-<table>
-<thead>
-<tr>
-<th>位置</th>
-<th>文件</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td><code>datus/configuration/node_type.py</code></td>
-<td>添加 <code>TYPE_XXX</code> 常量 + ACTION_TYPES + 描述</td>
-</tr>
-<tr>
-<td>2</td>
-<td><code>datus/agent/node/node.py</code></td>
-<td><code>new_instance()</code> 工厂分支</td>
-</tr>
-<tr>
-<td>3</td>
-<td><code>datus/agent/node/node_factory.py</code></td>
-<td><code>create_interactive_node()</code> + <code>create_node_input()</code></td>
-</tr>
-<tr>
-<td>4</td>
-<td><code>datus/tools/func_tool/sub_agent_task_tool.py</code></td>
-<td><code>NODE_CLASS_MAP</code></td>
-</tr>
-<tr>
-<td>5</td>
-<td>同上</td>
-<td><code>BUILTIN_SUBAGENT_DESCRIPTIONS</code></td>
-</tr>
-<tr>
-<td>6</td>
-<td>同上</td>
-<td><code>_create_builtin_node()</code></td>
-</tr>
-<tr>
-<td>7</td>
-<td>同上</td>
-<td><code>_resolve_node_type()</code></td>
-</tr>
-<tr>
-<td>8</td>
-<td>同上</td>
-<td><code>_build_node_input()</code></td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="5-prompt">5. Prompt 模板<a class="headerlink" href="#5-prompt" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>模板</th>
-<th>服务对象</th>
-<th>关键内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>gen_table_system_1.0.j2</code></td>
-<td>gen_table</td>
-<td>两种输入模式、DDL 确认流程</td>
-</tr>
-<tr>
-<td><code>gen_job_system_1.0.j2</code></td>
-<td>gen_job</td>
-<td>单库 ETL 流程，不含跨库内容</td>
-</tr>
-<tr>
-<td><code>migration_system_1.0.j2</code></td>
-<td>migration</td>
-<td>跨库迁移完整流程 + 安全硬规则</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="6">6. 测试覆盖<a class="headerlink" href="#6" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th>测试文件</th>
-<th>覆盖范围</th>
-<th>数量</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>test_type_mapping.py</code></td>
-<td>跨方言类型映射</td>
-<td>77</td>
-</tr>
-<tr>
-<td><code>test_target_profiles.py</code></td>
-<td>DDL 生成 Profile</td>
-<td>28</td>
-</tr>
-<tr>
-<td><code>test_reconciliation.py</code></td>
-<td>对数校验 SQL 生成</td>
-<td>13</td>
-</tr>
-<tr>
-<td><code>test_database.py</code></td>
-<td>DBFuncTool 新方法</td>
-<td>~20</td>
-</tr>
-<tr>
-<td><code>test_gen_job_agentic_node.py</code></td>
-<td>gen_job subagent</td>
-<td>17</td>
-</tr>
-<tr>
-<td><code>test_migration_agentic_node.py</code></td>
-<td>migration subagent</td>
-<td>17</td>
-</tr>
-<tr>
-<td><code>test_migration_integration.py</code></td>
-<td>集成测试（GP+SR）</td>
-<td>8</td>
-</tr>
-<tr>
-<td><code>test_migration_subagent.py</code></td>
-<td>子代理集成测试</td>
-<td>6</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2 id="7">7. 架构图<a class="headerlink" href="#7" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>┌────────────────────────────────────────────────────────┐
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>│                    用户请求（自然语言）                    │
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>└────────────────────┬───────────────────────────────────┘
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>                     │
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>                     ▼
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>┌────────────────────────────────────────────────────────┐
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>│              gen_sql (主代理 / 路由器)                    │
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>│         task(type=&quot;gen_table|gen_job|migration&quot;)        │
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>└──────┬──────────────┬──────────────┬──────────────────┘
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>       │              │              │
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>       ▼              ▼              ▼
-</span><span id="__span-0-12"><a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>┌─────────────┐ ┌───────────┐ ┌──────────────┐
-</span><span id="__span-0-13"><a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>│  gen_table   │ │  gen_job   │ │  migration   │
-</span><span id="__span-0-14"><a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>│  (建表)      │ │ (单库ETL)  │ │ (跨库迁移)    │
-</span><span id="__span-0-15"><a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>├─────────────┤ ├───────────┤ ├──────────────┤
-</span><span id="__span-0-16"><a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>│ Skills:     │ │ Skills:   │ │ Skills:      │
-</span><span id="__span-0-17"><a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>│ • gen-table │ │ • gen-table│ │ • data-      │
-</span><span id="__span-0-18"><a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>│             │ │ • table-  │ │   migration  │
-</span><span id="__span-0-19"><a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>│             │ │   validation│ │ • table-    │
-</span><span id="__span-0-20"><a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>│             │ │           │ │   validation │
-</span><span id="__span-0-21"><a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>├─────────────┤ ├───────────┤ ├──────────────┤
-</span><span id="__span-0-22"><a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>│ Tools:      │ │ Tools:    │ │ Tools:       │
-</span><span id="__span-0-23"><a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>│ • DB 只读   │ │ • DB 只读  │ │ • DB 只读    │
-</span><span id="__span-0-24"><a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>│ • execute_  │ │ • execute_│ │ • execute_   │
-</span><span id="__span-0-25"><a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>│   ddl       │ │   ddl     │ │   ddl        │
-</span><span id="__span-0-26"><a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>│ • ask_user  │ │ • execute_│ │ • execute_   │
-</span><span id="__span-0-27"><a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>│ • 文件系统   │ │   write   │ │   write      │
-</span><span id="__span-0-28"><a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>│             │ │ • ask_user│ │ • transfer_  │
-</span><span id="__span-0-29"><a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>│             │ │ • 文件系统 │ │   query_     │
-</span><span id="__span-0-30"><a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>│             │ │           │ │   result     │
-</span><span id="__span-0-31"><a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>│             │ │           │ │ • ask_user   │
-</span><span id="__span-0-32"><a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>│             │ │           │ │ • 文件系统    │
-</span><span id="__span-0-33"><a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>└─────────────┘ └───────────┘ └──────────────┘
-</span><span id="__span-0-34"><a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>                                     │
-</span><span id="__span-0-35"><a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>                     ┌───────────────┼───────────────┐
-</span><span id="__span-0-36"><a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>                     ▼               ▼               ▼
-</span><span id="__span-0-37"><a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>              ┌────────────┐ ┌────────────┐ ┌────────────┐
-</span><span id="__span-0-38"><a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>              │ type_      │ │ target_    │ │ reconcili- │
-</span><span id="__span-0-39"><a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>              │ mapping    │ │ profiles   │ │ ation      │
-</span><span id="__span-0-40"><a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>              │ (类型映射)  │ │ (DDL生成)   │ │ (对数校验)  │
-</span><span id="__span-0-41"><a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>              └────────────┘ └────────────┘ └────────────┘
+<p>Use <strong>Up/Down</strong> arrows to navigate, <strong>Enter</strong> to select, and <strong>Esc</strong> / <strong>q</strong> to cancel.</p>
+<h3 id="direct-shortcuts">Direct Shortcuts<a class="headerlink" href="#direct-shortcuts" title="Permanent link">&para;</a></h3>
+<p>Switch without opening the picker:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a># Switch to a specific provider + model
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>/model openai/gpt-4.1
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>/model deepseek/deepseek-chat
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>/model claude/claude-sonnet-4-5
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a># Switch to a custom model entry
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>/model custom:my-internal-model
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a># Open the picker pre-drilled into a provider
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>/model openai
 </span></code></pre></div>
 <hr />
-<h2 id="8">8. 设计决策记录<a class="headerlink" href="#8" title="Permanent link">&para;</a></h2>
+<h2 id="provider-authentication">Provider Authentication<a class="headerlink" href="#provider-authentication" title="Permanent link">&para;</a></h2>
+<h3 id="api-key-providers">API Key Providers<a class="headerlink" href="#api-key-providers" title="Permanent link">&para;</a></h3>
+<p>For providers that require an API key (OpenAI, DeepSeek, Claude API, Kimi, Qwen, Gemini, etc.):</p>
+<ol>
+<li>Select the provider in the picker</li>
+<li>If no credentials are configured, a credential form appears</li>
+<li>Enter your API key (masked input)</li>
+<li>The key is persisted to <code>agent.yml</code> under <code>agent.providers.&lt;name&gt;</code></li>
+</ol>
+<p>API keys can also be pre-configured via environment variables. Each provider has a default env var name defined in <code>conf/providers.yml</code> (e.g., <code>OPENAI_API_KEY</code>, <code>DEEPSEEK_API_KEY</code>).</p>
+<h3 id="claude-subscription">Claude Subscription<a class="headerlink" href="#claude-subscription" title="Permanent link">&para;</a></h3>
+<p>For Claude Pro/Max subscription users:</p>
+<ol>
+<li>Select <strong>claude_subscription</strong> in the picker</li>
+<li>The system auto-detects locally stored subscription tokens</li>
+<li>If auto-detection fails, you are prompted to enter the token manually (<code>sk-ant-oat01-...</code>)</li>
+</ol>
+<h3 id="codex-chatgpt-pluspro-oauth">Codex (ChatGPT Plus/Pro) OAuth<a class="headerlink" href="#codex-chatgpt-pluspro-oauth" title="Permanent link">&para;</a></h3>
+<p>For ChatGPT Plus/Pro users via Codex:</p>
+<ol>
+<li>Select <strong>codex</strong> in the picker</li>
+<li>A browser window opens for OAuth authentication</li>
+<li>After completing the browser flow, connectivity is verified automatically</li>
+<li>On success, you return to the picker with Codex models available</li>
+</ol>
+<hr />
+<h2 id="custom-models">Custom Models<a class="headerlink" href="#custom-models" title="Permanent link">&para;</a></h2>
+<h3 id="adding-a-custom-model">Adding a Custom Model<a class="headerlink" href="#adding-a-custom-model" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate to the <strong>Custom</strong> tab in the picker</li>
+<li>Select <strong>+ Add custom model</strong></li>
+<li>Fill in the form fields:</li>
+<li><strong>Name</strong> — Unique identifier (used as <code>agent.models.&lt;name&gt;</code> key)</li>
+<li><strong>Type</strong> — Interface type (<code>openai</code>, <code>claude</code>, <code>deepseek</code>, <code>kimi</code>, <code>gemini</code>, etc.)</li>
+<li><strong>Base URL</strong> — API endpoint URL</li>
+<li><strong>API Key</strong> — Authentication credential (masked)</li>
+<li><strong>Model</strong> — Model name / SKU</li>
+<li>Press <strong>Enter</strong> to save</li>
+</ol>
+<p>Custom models are stored in <code>agent.yml</code> under <code>agent.models</code> and appear in the <strong>Custom</strong> tab.</p>
+<h3 id="deleting-a-custom-model">Deleting a Custom Model<a class="headerlink" href="#deleting-a-custom-model" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Navigate to the <strong>Custom</strong> tab</li>
+<li>Select the model to delete</li>
+<li>Press <strong>d</strong> twice (two-press confirmation) to delete</li>
+</ol>
+<hr />
+<h2 id="configuration-files">Configuration Files<a class="headerlink" href="#configuration-files" title="Permanent link">&para;</a></h2>
+<h3 id="project-override-datusconfigyml">Project Override (<code>.datus/config.yml</code>)<a class="headerlink" href="#project-override-datusconfigyml" title="Permanent link">&para;</a></h3>
+<p>When you select a model via <code>/model</code>, the choice is saved to <code>.datus/config.yml</code> in the current working directory:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Provider-level selection</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nt">target</span><span class="p">:</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="nt">provider</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">openai</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">gpt-4.1</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="c1"># Or, custom model selection</span>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="nt">target</span><span class="p">:</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="nt">custom</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-internal-model</span>
+</span></code></pre></div>
+<p>This file supports three keys only:</p>
 <table>
 <thead>
 <tr>
-<th>决策</th>
-<th>原因</th>
+<th>Key</th>
+<th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>gen_job 和 migration 拆为两个独立 subagent</td>
-<td>单库 ETL 和跨库迁移职责不同，tool 集合不同（gen_job 不需要 transfer）</td>
+<td><code>target</code></td>
+<td>Active LLM selection (provider+model or custom name)</td>
 </tr>
 <tr>
-<td>migration helper 层不依赖具体 adapter</td>
-<td>adapter 是按需安装的可选依赖，migration 工具必须独立</td>
+<td><code>default_database</code></td>
+<td>Default database for this project</td>
 </tr>
 <tr>
-<td>方言感知列名引号放在 transfer_query_result 中</td>
-<td>临时方案，已创建 issue <a class="magiclink magiclink-github magiclink-issue" href="https://github.com/Datus-ai/Datus-agent/issues/563" title="GitHub Issue: Datus-ai/Datus-agent #563">#563</a> 追踪迁移到 adapter 层</td>
-</tr>
-<tr>
-<td>迁移前强制检查数据库可用性</td>
-<td>防止 LLM 在目标库不可用时静默回退到其他库</td>
-</tr>
-<tr>
-<td>reconciliation 为强制步骤</td>
-<td>跨库迁移存在类型转换和精度风险，必须校验</td>
-</tr>
-<tr>
-<td>max_turns: gen_job=30, migration=40</td>
-<td>迁移流程包含更多阶段（探查→建表→传输→对数），需要更多轮次</td>
+<td><code>project_name</code></td>
+<td>Override for session/data shard name</td>
 </tr>
 </tbody>
 </table>
+<h3 id="provider-credentials-agentyml">Provider Credentials (<code>agent.yml</code>)<a class="headerlink" href="#provider-credentials-agentyml" title="Permanent link">&para;</a></h3>
+<p>Provider credentials live in <code>agent.yml</code> under <code>agent.providers</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="nt">agent</span><span class="p">:</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">providers</span><span class="p">:</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">    </span><span class="nt">openai</span><span class="p">:</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${OPENAI_API_KEY}</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">    </span><span class="nt">deepseek</span><span class="p">:</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">      </span><span class="nt">api_key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">${DEEPSEEK_API_KEY}</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">    </span><span class="nt">claude_subscription</span><span class="p">:</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">subscription</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">    </span><span class="nt">codex</span><span class="p">:</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">      </span><span class="nt">auth_type</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oauth</span>
+</span></code></pre></div>
+<h3 id="provider-catalog-confprovidersyml">Provider Catalog (<code>conf/providers.yml</code>)<a class="headerlink" href="#provider-catalog-confprovidersyml" title="Permanent link">&para;</a></h3>
+<p>The provider catalog defines available providers, their models, base URLs, and model specs. It is read-only and shipped with Datus. Adding a new provider to this file makes it available in the <code>/model</code> picker without code changes.</p>
+<hr />
+<h2 id="how-it-works">How It Works<a class="headerlink" href="#how-it-works" title="Permanent link">&para;</a></h2>
+<p>Model resolution follows this precedence:</p>
+<ol>
+<li><strong>Project override</strong> — <code>.datus/config.yml</code> in the current working directory</li>
+<li><strong>Base config</strong> — <code>agent.target</code> in <code>agent.yml</code></li>
+</ol>
+<p>The <code>/model</code> command updates the project override. It does <strong>not</strong> rebuild the agent — the switch takes effect on the next LLM call within the same session.</p>
 
 
 
