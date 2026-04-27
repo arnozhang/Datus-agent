@@ -7,6 +7,7 @@ from datus.utils.text_utils import (
     LITELLM_EMPTY_PLACEHOLDER,
     LitellmPlaceholderStreamFilter,
     clean_text,
+    redact_uri,
     strip_litellm_placeholder,
 )
 
@@ -190,3 +191,37 @@ class TestLitellmPlaceholderStreamFilter:
         for ch in LITELLM_EMPTY_PLACEHOLDER:
             f.feed(ch)
         assert f.finalize() == ""
+
+
+class TestRedactUri:
+    def test_empty_string_returns_empty(self):
+        assert redact_uri("") == ""
+
+    def test_none_returns_none(self):
+        assert redact_uri(None) is None
+
+    def test_uri_with_user_and_password_redacted(self):
+        assert redact_uri("mysql://alice:secret@db.example.com:3306/sales") == (
+            "mysql://alice:***@db.example.com:3306/sales"
+        )
+
+    def test_uri_with_password_only_redacted(self):
+        assert redact_uri("postgresql://:secret@host/db") == "postgresql://***@host/db"
+
+    def test_uri_without_password_unchanged(self):
+        uri = "postgresql://alice@db.example.com:5432/sales"
+        assert redact_uri(uri) == uri
+
+    def test_uri_without_credentials_unchanged(self):
+        uri = "sqlite:///tmp/local.db"
+        assert redact_uri(uri) == uri
+
+    def test_query_and_fragment_preserved(self):
+        assert redact_uri("postgresql://u:p@host:5432/db?sslmode=require#frag") == (
+            "postgresql://u:***@host:5432/db?sslmode=require#frag"
+        )
+
+    def test_invalid_uri_returned_as_is(self):
+        # Bracketed IPv6 with bad port triggers ValueError in urlsplit
+        weird = "http://[::1]:bad/path"
+        assert redact_uri(weird) == weird

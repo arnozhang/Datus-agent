@@ -4,8 +4,26 @@
 
 import re
 import unicodedata
+from urllib.parse import urlsplit, urlunsplit
 
 LITELLM_EMPTY_PLACEHOLDER = "[System: Empty message content sanitised to satisfy protocol]"
+
+
+def redact_uri(uri: str) -> str:
+    """Redact any password in a database URI, keeping scheme/host/path visible."""
+    if not uri:
+        return uri
+    try:
+        parts = urlsplit(uri)
+    except ValueError:
+        return uri
+    if parts.password is None:
+        return uri
+    username = parts.username or ""
+    host = parts.hostname or ""
+    port = f":{parts.port}" if parts.port else ""
+    netloc = f"{username}:***@{host}{port}" if username else f"***@{host}{port}"
+    return urlunsplit((parts.scheme, netloc, parts.path, parts.query, parts.fragment))
 
 
 def strip_litellm_placeholder(text: str) -> str:
