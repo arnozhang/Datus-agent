@@ -396,6 +396,8 @@
       
         
       
+        
+      
     
     
     
@@ -711,6 +713,17 @@
     <span class="md-ellipsis">
       
         Step 9: Verify the End-to-End Result
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saas-studio-tour-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaaS Studio Tour Variant
       
     </span>
   </a>
@@ -3115,6 +3128,8 @@
       
         
       
+        
+      
     
     
     
@@ -3201,6 +3216,34 @@
     
   
     Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Validation
   
 
     
@@ -3473,6 +3516,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode_extension/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode Extension
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3643,6 +3714,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#saas-studio-tour-variant" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaaS Studio Tour Variant
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3669,7 +3751,14 @@
 
 
 <h1 id="data-engineering-quickstart">Data Engineering Quickstart<a class="headerlink" href="#data-engineering-quickstart" title="Permanent link">&para;</a></h1>
-<p>This guide walks through a complete Datus workflow using the open DAComp data-engineering dataset. You will inspect the warehouse design, build layered tables interactively, generate ETL jobs, produce marts data, submit a daily Airflow job, and publish the result to Superset.</p>
+<p>This guide walks through a complete local Datus workflow using the open DAComp
+data-engineering dataset. You will inspect the warehouse design, build layered
+tables interactively in a local DuckDB workbench file, generate ETL jobs,
+produce marts data, submit a daily Airflow job, and publish the result to
+Superset.</p>
+<p>The local open-source quickstart does <strong>not</strong> require Iceberg, MinIO, or S3.
+The SaaS Studio tour uses a managed DuckDB + Iceberg lakehouse instead; see
+<a href="#saas-studio-tour-variant">SaaS Studio Tour Variant</a> for the namespace model.</p>
 <h2 id="step-0-download-the-quickstart-data">Step 0: Download the Quickstart Data<a class="headerlink" href="#step-0-download-the-quickstart-data" title="Permanent link">&para;</a></h2>
 <p>DAComp is <strong>not bundled</strong> with <code>datus-agent</code>. This tutorial uses a small
 quickstart package derived from the DAComp Lever example, so you do not need to
@@ -3678,10 +3767,10 @@ download the full DAComp archive.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>~/datus-quickstart-data
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>~/datus-quickstart-data
 </span></code></pre></div>
-<p>Then run the bash block below — it downloads and unpacks the quickstart data
-and local Docker stack, exports <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>,
-creates a writable DuckDB workbench, and finally prints the two <code>export</code>
-statements so you can paste them into another shell:</p>
+<p>Run the bash block below — it downloads and unpacks the quickstart data and
+local Docker stack, creates a writable DuckDB workbench, exports <code>DACOMP_HOME</code>
+/ <code>DATUS_QUICKSTART_STACK</code>, and finally prints the two <code>export</code> statements so
+you can paste them into another shell:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>datus-de-lever-quickstart-v1.zip<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>https://github.com/Datus-ai/datus-quickstart-data/releases/download/data-engineering-v1/datus-de-lever-quickstart-v1.zip
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>datus-data-engineering-quickstart-stack-v1.zip<span class="w"> </span><span class="se">\</span>
@@ -3739,7 +3828,7 @@ statements so you can paste them into another shell:</p>
 </ul>
 <p>Read those first so the prompts you give to the agent stay aligned with the intended warehouse design.</p>
 <h2 id="step-2-start-the-local-quickstart-stack">Step 2: Start the Local Quickstart Stack<a class="headerlink" href="#step-2-start-the-local-quickstart-stack" title="Permanent link">&para;</a></h2>
-<p>The downloaded stack includes the two local demo environments used by this walkthrough.</p>
+<p>The downloaded stack includes the local demo services used by this walkthrough.</p>
 <p>Start Superset:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DATUS_QUICKSTART_STACK</span><span class="s2">/superset&quot;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
@@ -3810,7 +3899,7 @@ environment variables from Step 0.</p>
 </span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">      </span><span class="nt">scheduler_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">airflow_prod</span>
 </span></code></pre></div>
 <p>Then start Datus with the <code>lever_duckdb</code> datasource, which points at the
-workbench DuckDB file:</p>
+writable workbench file:</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DACOMP_HOME</span><span class="s2">&quot;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>datus-cli<span class="w"> </span>--datasource<span class="w"> </span>lever_duckdb
 </span></code></pre></div>
@@ -3886,6 +3975,8 @@ BI-registered <code>superset_serving</code> Postgres datasource referenced by
 <code>agent.yml</code>, not physical database or catalog names inside DuckDB or Postgres.</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Please copy the source table marts.lever__requisition_enhanced from the lever_duckdb datasource into the superset_serving datasource as public.lever__requisition_enhanced, replacing the target table if it already exists. Then verify the source and target row counts.
 </span></code></pre></div>
+<p>The transfer tool creates <code>public.lever__requisition_enhanced</code> from the source
+result columns if it does not already exist.</p>
 <p>After this step, the table exists in the same database Superset knows as
 <code>bi_database_name: examples</code>.</p>
 <h2 id="step-8-create-a-superset-dashboard">Step 8: Create a Superset Dashboard<a class="headerlink" href="#step-8-create-a-superset-dashboard" title="Permanent link">&para;</a></h2>
@@ -3903,6 +3994,30 @@ database.</p>
 <li>a daily Airflow job visible in the scheduler UI</li>
 <li>a Superset dashboard URL returned by the dashboard generation flow</li>
 </ul>
+<h2 id="saas-studio-tour-variant">SaaS Studio Tour Variant<a class="headerlink" href="#saas-studio-tour-variant" title="Permanent link">&para;</a></h2>
+<p>The hosted SaaS tour uses the same Lever workflow, but it does not use the
+local <code>lever_workbench.duckdb</code> file. Instead, the platform provides a shared
+DuckDB + Iceberg lakehouse:</p>
+<ul>
+<li>shared read-only raw namespace: <code>lake.demo_raw</code></li>
+<li>per-workspace writable namespace: <code>lake.ws_&lt;workspace_id&gt;</code></li>
+<li>SaaS Airflow connection: <code>duckdb_lever_workbench</code></li>
+</ul>
+<p>Every user should run the tour in a separate workspace. The backend renders the
+seeded <code>docs/data_contract.yaml</code> for that workspace, so outputs target
+<code>lake.ws_&lt;workspace_id&gt;</code> while sources stay in <code>lake.demo_raw</code>. Prompts and SQL
+should use fully qualified table names such as:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>lake.demo_raw.requisition
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>lake.ws_&lt;workspace_id&gt;.stg_lever__requisition
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>lake.ws_&lt;workspace_id&gt;.int_lever__requisition_users
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>lake.ws_&lt;workspace_id&gt;.marts_lever__requisition_enhanced
+</span></code></pre></div>
+<p>Do not use unqualified physical schemas such as <code>raw.*</code>, <code>staging.*</code>,
+<code>intermediate.*</code>, or <code>marts.*</code> in the SaaS tour. Those names are logical layers
+only; the physical write boundary is the workspace namespace.</p>
+<p>If a demo project or Airflow DAG was generated before the workspace-namespace
+change, reset or recreate the demo project and regenerate the job so the DAG
+uses <code>lake.ws_&lt;workspace_id&gt;</code> instead of an old hard-coded namespace.</p>
 
 
 

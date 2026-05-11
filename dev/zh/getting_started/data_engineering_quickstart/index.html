@@ -396,6 +396,8 @@
       
         
       
+        
+      
     
     
     
@@ -711,6 +713,17 @@
     <span class="md-ellipsis">
       
         步骤 9：验证端到端结果
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#saas-studio-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaaS Studio Tour 变体
       
     </span>
   </a>
@@ -3115,6 +3128,8 @@
       
         
       
+        
+      
     
     
     
@@ -3201,6 +3216,34 @@
     
   
     Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../integration/validation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    校验
   
 
     
@@ -3473,6 +3516,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vscode_extension/introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    VSCode 插件
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -3643,6 +3714,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#saas-studio-tour" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SaaS Studio Tour 变体
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -3669,7 +3751,13 @@
 
 
 <h1 id="_1">数据工程快速开始<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>本指南使用开源的 DAComp 数据工程数据集，串起一条完整的 Datus 工作流：理解数仓分层设计、交互式建表、生成 ETL、产出 marts 数据、提交 Airflow 天级任务，并把结果写入 Superset 创建仪表盘。</p>
+<p>本指南使用开源的 DAComp 数据工程数据集，串起一条完整的本地 Datus
+工作流：理解数仓分层设计、在本地 DuckDB workbench 文件中交互式建表、
+生成 ETL、产出 marts 数据、提交 Airflow 天级任务，并把结果写入 Superset
+创建仪表盘。</p>
+<p>本地开源 quickstart <strong>不需要</strong> Iceberg、MinIO 或 S3。SaaS Studio tour
+使用托管的 DuckDB + Iceberg lakehouse；对应的 namespace 模型见文末
+「SaaS Studio Tour 变体」。</p>
 <h2 id="0-quickstart">步骤 0：下载 quickstart 数据<a class="headerlink" href="#0-quickstart" title="Permanent link">&para;</a></h2>
 <p>DAComp **不包含**在 <code>datus-agent</code> 仓库中。本文使用一个从 DAComp Lever
 示例整理出来的小型 quickstart 数据包，不需要下载完整 DAComp 压缩包。</p>
@@ -3678,8 +3766,8 @@
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>~/datus-quickstart-data
 </span></code></pre></div>
 <p>然后直接执行下面这段 bash，会下载并解压 quickstart 数据包和本地 Docker
-stack，导出 <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>，复制一份可写的 DuckDB
-工作库，最后打印两个环境变量供后续步骤使用：</p>
+stack，创建可写的 DuckDB workbench，导出 <code>DACOMP_HOME</code> /
+<code>DATUS_QUICKSTART_STACK</code>，最后打印两个环境变量供后续步骤使用：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>datus-de-lever-quickstart-v1.zip<span class="w"> </span><span class="se">\</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span>https://github.com/Datus-ai/datus-quickstart-data/releases/download/data-engineering-v1/datus-de-lever-quickstart-v1.zip
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>datus-data-engineering-quickstart-stack-v1.zip<span class="w"> </span><span class="se">\</span>
@@ -3735,9 +3823,10 @@ stack，导出 <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>，
 <li><code>docs/data_contract.yaml</code>：描述字段清洗、校验和标准化规则</li>
 <li><code>config/layer_dependencies.yaml</code>：描述层级顺序与表依赖关系</li>
 </ul>
-<p>在开始写 DDL 和 ETL 之前，先把这两份文件过一遍，后面给 agent 的提示词就能更贴近原始设计。</p>
+<p>在开始写 DDL 和 ETL 之前，先把这两份文件过一遍，后面给 agent
+的提示词就能更贴近原始设计。</p>
 <h2 id="2-quickstart">步骤 2：启动本地 quickstart 环境<a class="headerlink" href="#2-quickstart" title="Permanent link">&para;</a></h2>
-<p>下载的 stack 中已经包含本文真正会用到的两套本地 demo 环境。</p>
+<p>下载的 stack 中已经包含本文会用到的本地 demo 服务。</p>
 <p>启动 Superset：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DATUS_QUICKSTART_STACK</span><span class="s2">/superset&quot;</span>
 </span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
@@ -3752,8 +3841,9 @@ stack，导出 <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>，
 <li>Airflow：<code>http://127.0.0.1:8080</code>，用户名 <code>admin</code>，密码 <code>admin</code></li>
 </ul>
 <p>这套 quickstart 的 Superset compose 已经带了本地演示用的元数据库和管理员默认值。</p>
-<p>Airflow 的 compose 文件会挂载 <code>${DACOMP_HOME}</code>，并暴露一个名为
-<code>duckdb_dacomp_lever</code> 的连接，指向 <code>/workspace/lever_workbench.duckdb</code>。</p>
+<p>Airflow compose 会把 <code>${DACOMP_HOME}</code> 挂载到容器中，并暴露一个名为
+<code>duckdb_dacomp_lever</code> 的 Airflow connection，指向
+<code>/workspace/lever_workbench.duckdb</code>。</p>
 <h2 id="3-agentyml">步骤 3：配置 <code>agent.yml</code><a class="headerlink" href="#3-agentyml" title="Permanent link">&para;</a></h2>
 <p>把下面这段 service 配置合并到 <code>~/.datus/conf/agent.yml</code> 现有的 <code>agent:</code>
 下面。保留已有的 <code>agent.providers</code> 配置；<code>/model</code> 会使用这些凭据。路径会直接使用步骤
@@ -3804,7 +3894,8 @@ stack，导出 <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>，
 </span><span id="__span-4-44"><a id="__codelineno-4-44" name="__codelineno-4-44" href="#__codelineno-4-44"></a><span class="w">    </span><span class="nt">scheduler</span><span class="p">:</span>
 </span><span id="__span-4-45"><a id="__codelineno-4-45" name="__codelineno-4-45" href="#__codelineno-4-45"></a><span class="w">      </span><span class="nt">scheduler_service</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">airflow_prod</span>
 </span></code></pre></div>
-<p>然后使用 <code>lever_duckdb</code> datasource 启动 Datus；它指向上面的 DuckDB 工作库：</p>
+<p>然后使用 <code>lever_duckdb</code> datasource 启动 Datus。这个 datasource 指向可写的
+workbench 文件：</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="nb">cd</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$DACOMP_HOME</span><span class="s2">&quot;</span>
 </span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>datus-cli<span class="w"> </span>--datasource<span class="w"> </span>lever_duckdb
 </span></code></pre></div>
@@ -3814,7 +3905,9 @@ stack，导出 <code>DACOMP_HOME</code> / <code>DATUS_QUICKSTART_STACK</code>，
 <p>选择 provider/model，并按提示填写凭据。<code>/model</code> 会把 provider 凭据写入
 <code>~/.datus/conf/agent.yml</code> 的 <code>agent.providers</code>，并把当前项目使用的
 provider/model 写入 <code>./.datus/config.yml</code>。</p>
-<p>这里的 <code>dags_folder</code> 是 Datus 在主机上写入 DAG 文件的目录。Airflow compose 会把这个目录挂载到 Airflow 容器内的 <code>/opt/airflow/dags</code>，所以 Datus 生成的新 DAG 会被 Airflow 自动发现。</p>
+<p>这里的 <code>dags_folder</code> 是 Datus 在主机上写入 DAG 文件的目录。Airflow compose
+会把这个目录挂载到 Airflow 容器内的 <code>/opt/airflow/dags</code>，所以 Datus
+生成的新 DAG 会被 Airflow 自动发现。</p>
 <h2 id="4-staging">步骤 4：创建必要的 staging 表<a class="headerlink" href="#4-staging" title="Permanent link">&para;</a></h2>
 <p>自然语言 agent 任务不要以 <code>CREATE</code>、<code>COPY</code> 这类 SQL 动词开头；CLI 会根据这些
 开头关键字判断是否直接执行 SQL。</p>
@@ -3852,7 +3945,8 @@ staging 表。agent 会把任务分发到建表流程：</p>
 <div class="language-sql highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">marts</span><span class="p">.</span><span class="n">lever__requisition_enhanced</span><span class="p">;</span>
 </span></code></pre></div>
 <h2 id="6-airflow">步骤 6：提交天级 Airflow 任务<a class="headerlink" href="#6-airflow" title="Permanent link">&para;</a></h2>
-<p>现在可以要求 agent 把 marts 刷新过程提交给 scheduler。quickstart 自带的 Airflow 已经预置好了 <code>duckdb_dacomp_lever</code> 连接。</p>
+<p>现在可以要求 agent 把 marts 刷新过程提交给 scheduler。quickstart 自带的
+Airflow 已经预置好了 <code>duckdb_dacomp_lever</code> 连接。</p>
 <p>提交一个每天早上 8 点运行的 SQL 任务，刷新同一条从契约生成的链路：</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>Submit a daily SQL job named daily_lever_requisition_enhanced that refreshes staging.stg_lever__requisition, staging.stg_lever__user, staging.stg_lever__requisition_posting, staging.stg_lever__requisition_offer, intermediate.int_lever__requisition_users, and marts.lever__requisition_enhanced at 8am every day using the duckdb_dacomp_lever connection. Use the SQL generated and validated from docs/data_contract.yaml in the previous steps.
 </span></code></pre></div>
@@ -3873,6 +3967,7 @@ staging 表。agent 会把任务分发到建表流程：</p>
 datasource 名称，不是 DuckDB 或 Postgres 内部真实的 database/catalog 名。</p>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>Please copy the source table marts.lever__requisition_enhanced from the lever_duckdb datasource into the superset_serving datasource as public.lever__requisition_enhanced, replacing the target table if it already exists. Then verify the source and target row counts.
 </span></code></pre></div>
+<p>如果 <code>public.lever__requisition_enhanced</code> 还不存在，传输工具会根据源查询结果列自动创建目标表。</p>
 <p>完成后，这张表就位于 Superset 通过 <code>bi_database_name: examples</code> 识别的数据库中。</p>
 <h2 id="8-superset-dashboard">步骤 8：创建 Superset Dashboard<a class="headerlink" href="#8-superset-dashboard" title="Permanent link">&para;</a></h2>
 <p>当表已经存在于 <code>superset_serving</code>，就可以要求 agent 创建仪表盘：</p>
@@ -3883,11 +3978,34 @@ SQL dataset 已经存在于 BI 已注册的数据库中。</p>
 <h2 id="9">步骤 9：验证端到端结果<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
 <p>走完整条链路后，你应该能确认：</p>
 <ul>
-<li><code>lever_workbench.duckdb</code> 里已经有 <code>staging</code>、<code>intermediate</code>、<code>marts</code> 三层 schema</li>
-<li><code>marts.lever__requisition_enhanced</code> 是从 raw 数据经 staging 和 intermediate 逐层加工得到的</li>
+<li><code>lever_workbench.duckdb</code> 中已经有 <code>staging</code>、<code>intermediate</code> 和 <code>marts</code> schema</li>
+<li><code>marts.lever__requisition_enhanced</code> 是从 raw 数据经 staging 和 intermediate 层逐层加工得到的</li>
 <li>Airflow 中能看到日常调度任务</li>
 <li>仪表盘生成流程返回了 Superset dashboard URL</li>
 </ul>
+<h2 id="saas-studio-tour">SaaS Studio Tour 变体<a class="headerlink" href="#saas-studio-tour" title="Permanent link">&para;</a></h2>
+<p>托管的 SaaS tour 使用同一条 Lever 工作流，但不使用本地
+<code>lever_workbench.duckdb</code> 文件。平台会提供共享的 DuckDB + Iceberg lakehouse：</p>
+<ul>
+<li>共享只读 raw namespace：<code>lake.demo_raw</code></li>
+<li>每个 workspace 独立可写 namespace：<code>lake.ws_&lt;workspace_id&gt;</code></li>
+<li>SaaS Airflow connection：<code>duckdb_lever_workbench</code></li>
+</ul>
+<p>每个用户都应该在独立 workspace 中运行 tour。backend 会按当前 workspace
+渲染 seed 进去的 <code>docs/data_contract.yaml</code>，所以输出会写到
+<code>lake.ws_&lt;workspace_id&gt;</code>，源数据继续来自 <code>lake.demo_raw</code>。prompt 和 SQL
+应该使用完整限定名，例如：</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>lake.demo_raw.requisition
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>lake.ws_&lt;workspace_id&gt;.stg_lever__requisition
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>lake.ws_&lt;workspace_id&gt;.int_lever__requisition_users
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>lake.ws_&lt;workspace_id&gt;.marts_lever__requisition_enhanced
+</span></code></pre></div>
+<p>SaaS tour 中不要使用 <code>raw.*</code>、<code>staging.*</code>、<code>intermediate.*</code>、<code>marts.*</code>
+这类未限定的物理 schema 名。它们只表示逻辑层级；真实可写边界是 workspace
+namespace。</p>
+<p>如果 demo project 或 Airflow DAG 是在 workspace namespace 改造前生成的，
+需要重置或重建 demo project，并重新生成 job，确保 DAG 使用
+<code>lake.ws_&lt;workspace_id&gt;</code>，而不是旧的硬编码 namespace。</p>
 
 
 
