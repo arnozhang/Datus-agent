@@ -3215,10 +3215,6 @@
           
         
       
-        
-      
-        
-      
     
     
     
@@ -3251,11 +3247,6 @@
 
             </a>
             
-              
-              <label class="md-nav__link " for="__nav_1_16" id="__nav_1_16_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
           </div>
         
         <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_16_label" aria-expanded="false">
@@ -3269,62 +3260,6 @@
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../develop/Architecture/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Architecture
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../develop/Contributing/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Contributing
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
               
             
           </ul>
@@ -3531,7 +3466,7 @@ precedence) or <code>~/.datus/skills/init/SKILL.md</code> (user-global). Project
 and user overrides shadow the packaged copy by skill name.</p>
 <hr />
 <h2 id="basic-usage">Basic Usage<a class="headerlink" href="#basic-usage" title="Permanent link">&para;</a></h2>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Datus&gt; /init
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&gt; /init
 </span></code></pre></div>
 <p><code>/init</code> takes no arguments. The datasource passed to <code>db_tools.list_tables</code>
 is whichever one the REPL is currently pinned to (set at launch with
@@ -3567,9 +3502,9 @@ packaged built-in.</p>
 <h2 id="iterative-refinement">Iterative Refinement<a class="headerlink" href="#iterative-refinement" title="Permanent link">&para;</a></h2>
 <p>Because <code>/init</code> is just a chat turn, you can keep chatting afterwards to
 refine the result, e.g.:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Datus&gt; /init
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>&gt; /init
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>… &lt;streaming output, AGENTS.md written&gt; …
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>Datus&gt; Rewrite the Architecture section to emphasize the data warehouse layer.
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>&gt; Rewrite the Architecture section to emphasize the data warehouse layer.
 </span></code></pre></div>
 <p>The agent will edit <code>AGENTS.md</code> in place using <code>filesystem_tools.write_file</code>.</p>
 <p>See also: <a href="../model_command/"><code>/model</code></a>, <a href="../reference/"><code>/datasource</code> (in the slash command reference)</a>, <a href="../../integration/skills/">Skills Integration</a>.</p>
